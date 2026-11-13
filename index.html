@@ -6,8 +6,8 @@
     <title>HelioOptics | Engenharia Térmica e Radiação Solar</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
@@ -30,7 +30,6 @@
     </header>
 
     <section class="hero">
-        <div class="hero-glow"></div>
         <div class="container hero-grid">
             <div class="hero-text">
                 <span class="badge">PROJETO INTEGRADOR • ÓPTICA & TERMODINÂMICA</span>
@@ -65,17 +64,17 @@
             </div>
 
             <div class="context-grid">
-                <div class="context-card">
+                <div class="context-card card-yellow">
                     <div class="card-number">01</div>
                     <h3>O Espectro Solar</h3>
                     <p>A radiação emitida pelo Sol viaja pelo espaço em forma de ondas eletromagnéticas, compostas principalmente por luz ultravioleta (UV), luz visível e radiação infravermelha (calor).</p>
                 </div>
-                <div class="context-card">
+                <div class="context-card card-orange">
                     <div class="card-number">02</div>
                     <h3>Balanço Energético</h3>
                     <p>Quando um feixe de luz incide sobre um corpo, a energia total não desaparece: ela se divide em três fenômenos simultâneos — absorção, reflexão e transmissão.</p>
                 </div>
-                <div class="context-card">
+                <div class="context-card card-red">
                     <div class="card-number">03</div>
                     <h3>Propriedades Ópticas</h3>
                     <p>A composição química, a transparência e a cor da superfície determinam qual desses três fenômenos será dominante, definindo o aquecimento ou o isolamento térmico do material.</p>
@@ -102,8 +101,7 @@
                     <img 
                         src="img/banner-solar.jpg" 
                         alt="Esquema de Absorção, Reflexão e Transmissão Solar" 
-                        onload="document.getElementById('imageFrame').classList.add('has-image')"
-                        onerror="this.style.display='none'"
+                        id="projectImage"
                     >
                     <div class="placeholder-box">
                         <div class="placeholder-icon">+</div>
@@ -124,7 +122,7 @@
             </div>
 
             <div class="qa-container">
-                <article class="qa-card">
+                <article class="qa-card qa-yellow">
                     <div class="qa-header">
                         <span class="qa-badge">Questão 01</span>
                         <h3>Por que superfícies escuras tendem a absorver mais luz visível?</h3>
@@ -135,7 +133,7 @@
                     </div>
                 </article>
 
-                <article class="qa-card">
+                <article class="qa-card qa-orange">
                     <div class="qa-header">
                         <span class="qa-badge">Questão 02</span>
                         <h3>Qual é a diferença entre absorver e refletir radiação?</h3>
@@ -155,7 +153,7 @@
                     </div>
                 </article>
 
-                <article class="qa-card">
+                <article class="qa-card qa-red">
                     <div class="qa-header">
                         <span class="qa-badge">Questão 03</span>
                         <h3>Uma cobertura transparente pode ajudar a aquecer a piscina?</h3>
@@ -173,8 +171,8 @@
         <div class="container">
             <div class="section-header light">
                 <span class="section-tag">04. LABORATÓRIO INTERATIVO</span>
+                <h2>Simulador de Comportamento Óptico</h2>
 Use o código com cuidado.
-Simulador de Comportamento Óptico
 Selecione um material abaixo para visualizar as taxas médias de absorção, reflexão e transmissão solar.
 Asfalto / Superfície Preta
 Superfície Metálica / Branca
@@ -192,4 +190,4 @@ Transmissão0%
 
 HelioOptics
 
-Projeto Integrador — 3º Trimestre • Estudo de Absorção, Reflexão e Transmissão Solar.e Transmissão Solar.
+Projeto Integrador — 3º Trimestre • Estudo de Absorção, Reflexão e Transmissão Solar.
