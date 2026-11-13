@@ -1,0 +1,618 @@
+/* ==========================================================================
+   VARIÁVEIS DE CORES (PALETA SOLAR EMPRESARIAL) E TIPOGRAFIA
+   ========================================================================== */
+:root {
+    --solar-yellow: #FFB703;
+    --solar-amber: #FB8500;
+    --solar-orange: #E85D04;
+    --solar-red: #D00000;
+    --solar-deep: #9D0208;
+    
+    --bg-light: #FFFDF9;
+    --bg-warm: #FFF5E6;
+    --bg-dark: #1E130C;
+    --surface-white: #FFFFFF;
+    
+    --text-main: #2B1E16;
+    --text-muted: #635349;
+    --border-subtle: rgba(232, 93, 4, 0.18);
+    
+    --gradient-solar: linear-gradient(135deg, #FFB703 0%, #FB8500 50%, #D00000 100%);
+    --shadow-card: 0 12px 32px rgba(157, 2, 8, 0.07);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.25;
+    color: var(--text-main);
+}
+
+.container {
+    width: 90%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   NAVEGAÇÃO SUPERIOR
+   ========================================================================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 253, 249, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1rem 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.35rem;
+    color: var(--text-main);
+}
+
+.sun-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--gradient-solar);
+    box-shadow: 0 0 14px rgba(251, 133, 0, 0.6);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--solar-orange);
+}
+
+.btn-primary {
+    background: var(--gradient-solar);
+    color: #FFFFFF;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 20px rgba(232, 93, 4, 0.28);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(208, 0, 0, 0.35);
+}
+
+.btn-outline {
+    border: 2px solid var(--solar-orange);
+    color: var(--solar-orange);
+    padding: 0.7rem 1.45rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+    background: var(--solar-orange);
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   HERO & ANIMAÇÃO SOLAR
+   ========================================================================== */
+.hero {
+    position: relative;
+    padding: 5.5rem 0;
+    overflow: hidden;
+}
+
+.hero-glow {
+    position: absolute;
+    top: -150px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 183, 3, 0.22) 0%, rgba(232, 93, 4, 0.05) 55%, transparent 75%);
+    z-index: -1;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(251, 133, 0, 0.14);
+    color: var(--solar-red);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 1.2px;
+    padding: 0.45rem 0.9rem;
+    border-radius: 50px;
+    margin-bottom: 1.2rem;
+}
+
+.hero-text h1 {
+    font-size: 2.9rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(90deg, #2B1E16 0%, #9D0208 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+    font-size: 1.12rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    max-width: 560px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Diagrama Animado de Radiação */
+.solar-diagram {
+    position: relative;
+    height: 320px;
+    background: var(--surface-white);
+    border-radius: 20px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.sun-orb {
+    position: absolute;
+    top: 28px;
+    left: 32px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gradient-solar);
+    box-shadow: 0 0 30px #FFB703, 0 0 60px rgba(232, 93, 4, 0.5);
+    animation: pulseSun 3s infinite alternate ease-in-out;
+}
+
+.ray {
+    position: absolute;
+    top: 85px;
+    left: 85px;
+    width: 3px;
+    height: 170px;
+    background: linear-gradient(to bottom, #FFB703, #D00000);
+    transform-origin: top left;
+    opacity: 0.75;
+}
+
+.ray-1 { transform: rotate(-28deg); animation: beamPulse 2.2s infinite; }
+.ray-2 { transform: rotate(-42deg); animation: beamPulse 2.2s infinite 0.5s; }
+.ray-3 { transform: rotate(-55deg); animation: beamPulse 2.2s infinite 1s; }
+
+.surface-bar {
+    height: 54px;
+    background: linear-gradient(90deg, #2B1E16, #5C2B16);
+    color: #FFB703;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+@keyframes pulseSun {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+}
+
+@keyframes beamPulse {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 1; }
+}
+
+/* ==========================================================================
+   SEÇÕES GERAIS E CARDS DE CONTEXTUALIZAÇÃO
+   ========================================================================== */
+.section {
+    padding: 5.5rem 0;
+}
+
+.bg-warm {
+    background-color: var(--bg-warm);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.section-tag {
+    display: inline-block;
+    color: var(--solar-orange);
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.6rem;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.context-card {
+    background: var(--surface-white);
+    padding: 2.2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease;
+}
+
+.context-card:hover {
+    transform: translateY(-6px);
+}
+
+.card-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--gradient-solar);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.8rem;
+}
+
+.context-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.8rem;
+}
+
+.context-card p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+}
+
+/* ==========================================================================
+   QUADRADO BRANCO RESERVADO PARA A IMAGEM ("A SER COLOCADA")
+   ========================================================================== */
+.media-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.media-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.media-info p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.tech-list {
+    list-style: none;
+    background: var(--surface-white);
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--solar-orange);
+}
+
+.tech-list li {
+    font-size: 0.92rem;
+    margin-bottom: 0.4rem;
+}
+
+.tech-list code {
+    background: #FFF0DB;
+    color: var(--solar-red);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Estilo do Quadrado Branco */
+.image-frame {
+    position: relative;
+    width: 100%;
+    min-height: 360px;
+    background-color: #FFFFFF;
+    border: 3px dashed var(--solar-amber);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+/* Quando a imagem existir no GitHub, a borda tracejada some automaticamente */
+.image-frame.has-image {
+    border: 1px solid var(--border-subtle);
+}
+
+.image-frame.has-image .placeholder-box {
+    display: none;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.placeholder-box {
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.placeholder-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--bg-warm);
+    color: var(--solar-orange);
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.4rem;
+}
+
+.placeholder-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--solar-red);
+    letter-spacing: 1px;
+}
+
+.placeholder-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+QUESTÕES ORIENTADORAS (CARDS DETALHADOS)
+========================================================================== */
+.qa-container {
+display: flex;
+flex-direction: column;
+gap: 2rem;
+}
+.qa-card {
+background: var(--surface-white);
+border-radius: 16px;
+padding: 2.5rem;
+border: 1px solid var(--border-subtle);
+border-left: 6px solid var(--solar-orange);
+box-shadow: var(--shadow-card);
+}
+.qa-header {
+margin-bottom: 1.2rem;
+}
+.qa-badge {
+display: inline-block;
+background: var(--gradient-solar);
+color: #FFFFFF;
+font-size: 0.78rem;
+font-weight: 700;
+padding: 0.3rem 0.8rem;
+border-radius: 6px;
+margin-bottom: 0.6rem;
+}
+.qa-header h3 {
+font-size: 1.4rem;
+}
+.qa-body p {
+color: var(--text-muted);
+margin-bottom: 1rem;
+}
+.qa-body p:last-child {
+margin-bottom: 0;
+}
+.comparison-box {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1.5rem;
+margin-top: 1.2rem;
+}
+.comp-item {
+background: var(--bg-warm);
+padding: 1.4rem;
+border-radius: 12px;
+border: 1px solid rgba(251, 133, 0, 0.25);
+}
+.comp-item h4 {
+color: var(--solar-red);
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+/* ==========================================================================
+SIMULADOR INTERATIVO
+========================================================================== */
+.bg-dark {
+background-color: var(--bg-dark);
+color: #FFFFFF;
+}
+.section-header.light h2 {
+color: #FFFFFF;
+}
+.section-header.light p {
+color: #D6C7BE;
+}
+.simulator-box {
+background: #2B1B12;
+border: 1px solid rgba(255, 183, 3, 0.25);
+border-radius: 20px;
+padding: 2.5rem;
+}
+.sim-controls {
+display: flex;
+gap: 1rem;
+flex-wrap: wrap;
+margin-bottom: 2rem;
+}
+.sim-btn {
+background: rgba(255, 255, 255, 0.06);
+border: 1px solid rgba(255, 183, 3, 0.3);
+color: #FFFFFF;
+padding: 0.8rem 1.4rem;
+border-radius: 10px;
+font-family: 'Plus Jakarta Sans', sans-serif;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.25s ease;
+}
+.sim-btn.active, .sim-btn:hover {
+background: var(--gradient-solar);
+border-color: transparent;
+color: #FFFFFF;
+}
+.sim-results h3 {
+color: var(--solar-yellow);
+font-size: 1.4rem;
+margin-bottom: 0.5rem;
+}
+.sim-results p {
+color: #D6C7BE;
+margin-bottom: 1.8rem;
+}
+.bar-group {
+margin-bottom: 1.2rem;
+}
+.bar-label {
+display: flex;
+justify-content: space-between;
+font-size: 0.92rem;
+font-weight: 600;
+margin-bottom: 0.4rem;
+}
+.bar-track {
+width: 100%;
+height: 12px;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+overflow: hidden;
+}
+.bar-fill {
+height: 100%;
+border-radius: 10px;
+transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fill-abs { background: #D00000; }
+.fill-ref { background: #FFB703; }
+.fill-tra { background: #FB8500; }
+/* ==========================================================================
+RODAPÉ E ANIMAÇÕES DE ROLAGEM
+========================================================================== */
+.footer {
+background: #140C07;
+color: #A8988E;
+padding: 2.5rem 0;
+border-top: 1px solid rgba(255, 183, 3, 0.15);
+}
+.footer-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+}
+.footer .logo {
+color: #FFFFFF;
+}
+.reveal {
+opacity: 0;
+transform: translateY(25px);
+transition: all 0.7s ease-out;
+}
+.reveal.visible {
+opacity: 1;
+transform: translateY(0);
+}
+@media (max-width: 850px) {
+.hero-grid, .media-layout, .comparison-box {
+grid-template-columns: 1fr;
+}
+.nav-links {
+display: none;
+}
+.hero-text h1 {
+font-size: 2.2rem;
+}
+}
