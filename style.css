@@ -1,22 +1,29 @@
-```css
+/* ==========================================================================
+   VARIÁVEIS DE CORES (OFF-WHITE & ESPECTRO SOLAR TECNOLÓGICO)
+   ========================================================================== */
 :root {
-    --solar-yellow: #FFB703;
-    --solar-amber: #FB8500;
-    --solar-orange: #E85D04;
-    --solar-red: #D00000;
-    --solar-deep: #9D0208;
+    /* Tons do Sol: Amarelo, Laranja e Vermelho */
+    --sun-yellow: #FFB703;
+    --sun-gold: #FCA311;
+    --sun-orange: #FB8500;
+    --sun-burnt: #E85D04;
+    --sun-red: #D00000;
+    --sun-crimson: #9D0208;
+    --sun-dark: #241109;
+
+    /* Fundos Off-White e Superfícies */
+    --bg-offwhite: #F5F0E6;
+    --bg-offwhite-alt: #EDE5D5;
+    --card-cream: #FAF7F0;
     
-    --bg-light: #FFFDF9;
-    --bg-warm: #FFF5E6;
-    --bg-dark: #1E130C;
-    --surface-white: #FFFFFF;
+    /* Textos */
+    --text-primary: #22140E;
+    --text-secondary: #59443A;
     
-    --text-main: #2B1E16;
-    --text-muted: #635349;
-    --border-subtle: rgba(232, 93, 4, 0.18);
-    
-    --gradient-solar: linear-gradient(135deg, #FFB703 0%, #FB8500 50%, #D00000 100%);
-    --shadow-card: 0 12px 32px rgba(157, 2, 8, 0.07);
+    /* Gradientes Tecnológicos */
+    --grad-solar: linear-gradient(135deg, #FFB703 0%, #FB8500 50%, #D00000 100%);
+    --grad-tech-dark: linear-gradient(145deg, #2B130A 0%, #4A1809 55%, #7A1C08 100%);
+    --shadow-tech: 0 14px 34px rgba(157, 2, 8, 0.10);
 }
 
 * {
@@ -31,8 +38,13 @@ html {
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-main);
+    background-color: var(--bg-offwhite);
+    /* Grade tecnológica sutil no fundo off-white */
+    background-image: 
+        linear-gradient(rgba(232, 93, 4, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 93, 4, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    color: var(--text-primary);
     line-height: 1.7;
     overflow-x: hidden;
 }
@@ -40,7 +52,6 @@ body {
 h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.25;
-    color: var(--text-main);
 }
 
 .container {
@@ -49,13 +60,16 @@ h1, h2, h3, h4 {
     margin: 0 auto;
 }
 
+/* ==========================================================================
+   BARRA DE NAVEGAÇÃO (GLASSMORPHISM OFF-WHITE)
+   ========================================================================== */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 253, 249, 0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-subtle);
+    background: rgba(245, 240, 230, 0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 2px solid rgba(251, 133, 0, 0.25);
     padding: 1rem 0;
 }
 
@@ -70,16 +84,16 @@ h1, h2, h3, h4 {
     align-items: center;
     gap: 10px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.35rem;
-    color: var(--text-main);
+    font-size: 1.4rem;
+    color: var(--text-primary);
 }
 
 .sun-icon {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
-    background: var(--gradient-solar);
-    box-shadow: 0 0 14px rgba(251, 133, 0, 0.6);
+    background: var(--grad-solar);
+    box-shadow: 0 0 16px rgba(255, 183, 3, 0.85);
 }
 
 .nav-links {
@@ -90,68 +104,68 @@ h1, h2, h3, h4 {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-weight: 600;
     font-size: 0.95rem;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--solar-orange);
+    color: var(--sun-red);
 }
 
 .btn-primary {
-    background: var(--gradient-solar);
+    background: var(--grad-solar);
     color: #FFFFFF;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    box-shadow: 0 6px 20px rgba(232, 93, 4, 0.28);
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: 0.3px;
+    box-shadow: 0 6px 20px rgba(208, 0, 0, 0.28);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(208, 0, 0, 0.35);
+    box-shadow: 0 10px 26px rgba(208, 0, 0, 0.42);
 }
 
 .btn-outline {
-    border: 2px solid var(--solar-orange);
-    color: var(--solar-orange);
+    background: rgba(255, 183, 3, 0.14);
+    border: 2px solid var(--sun-burnt);
+    color: var(--sun-crimson);
     padding: 0.7rem 1.45rem;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-weight: 700;
+    font-size: 0.92rem;
     transition: all 0.25s ease;
 }
 
 .btn-outline:hover {
-    background: var(--solar-orange);
+    background: var(--sun-burnt);
     color: #FFFFFF;
 }
 
+/* ==========================================================================
+   HERO SECTION (DESTAQUE TECNOLÓGICO)
+   ========================================================================== */
 .hero {
     position: relative;
     padding: 5rem 0;
     overflow: hidden;
-    animation: fadeUp 0.8s ease-out;
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
+    border-bottom: 1px solid rgba(232, 93, 4, 0.18);
 }
 
 .hero-glow {
     position: absolute;
-    top: -150px;
-    right: -100px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255, 183, 3, 0.22) 0%, rgba(232, 93, 4, 0.05) 55%, transparent 75%);
+    top: -120px;
+    right: -80px;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(255, 183, 3, 0.28) 0%, rgba(232, 93, 4, 0.12) 45%, transparent 72%);
     z-index: -1;
 }
 
@@ -164,26 +178,29 @@ h1, h2, h3, h4 {
 
 .badge {
     display: inline-block;
-    background: rgba(251, 133, 0, 0.14);
-    color: var(--solar-red);
-    font-weight: 700;
-    font-size: 0.78rem;
-    letter-spacing: 1.2px;
-    padding: 0.45rem 0.9rem;
-    border-radius: 50px;
+    background: linear-gradient(90deg, rgba(255, 183, 3, 0.25), rgba(208, 0, 0, 0.15));
+    border: 1px solid rgba(232, 93, 4, 0.35);
+    color: var(--sun-crimson);
+    font-weight: 800;
+    font-size: 0.76rem;
+    letter-spacing: 1.3px;
+    padding: 0.45rem 1rem;
+    border-radius: 6px;
     margin-bottom: 1.2rem;
 }
 
 .hero-text h1 {
-    font-size: 2.8rem;
+    font-size: 2.85rem;
     font-weight: 800;
     margin-bottom: 1.2rem;
-    color: #9D0208;
+    background: linear-gradient(90deg, #241109 0%, #9D0208 55%, #E85D04 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-text p {
-    font-size: 1.12rem;
-    color: var(--text-muted);
+    font-size: 1.1rem;
+    color: var(--text-secondary);
     margin-bottom: 2rem;
     max-width: 560px;
 }
@@ -194,13 +211,14 @@ h1, h2, h3, h4 {
     flex-wrap: wrap;
 }
 
+/* Painel Animado Escuro Tecnológico */
 .solar-diagram {
     position: relative;
-    height: 320px;
-    background: var(--surface-white);
+    height: 330px;
+    background: var(--grad-tech-dark);
     border-radius: 20px;
-    border: 1px solid var(--border-subtle);
-    box-shadow: var(--shadow-card);
+    border: 2px solid rgba(255, 183, 3, 0.45);
+    box-shadow: 0 18px 40px rgba(157, 2, 8, 0.24);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -209,61 +227,65 @@ h1, h2, h3, h4 {
 
 .sun-orb {
     position: absolute;
-    top: 28px;
-    left: 32px;
-    width: 64px;
-    height: 64px;
+    top: 30px;
+    left: 34px;
+    width: 66px;
+    height: 66px;
     border-radius: 50%;
-    background: var(--gradient-solar);
-    box-shadow: 0 0 30px #FFB703, 0 0 60px rgba(232, 93, 4, 0.5);
-    animation: pulseSun 3s infinite alternate ease-in-out;
+    background: radial-gradient(circle, #FFF3B0 10%, #FFB703 45%, #E85D04 90%);
+    box-shadow: 0 0 35px #FFB703, 0 0 70px #FB8500;
+    animation: pulseSun 2.8s infinite alternate ease-in-out;
 }
 
 .ray {
     position: absolute;
-    top: 85px;
-    left: 85px;
+    top: 88px;
+    left: 88px;
     width: 3px;
-    height: 170px;
-    background: linear-gradient(to bottom, #FFB703, #D00000);
+    height: 185px;
+    background: linear-gradient(to bottom, #FFB703, #FB8500, #D00000);
     transform-origin: top left;
-    opacity: 0.75;
 }
 
-.ray-1 { transform: rotate(-28deg); animation: beamPulse 2.2s infinite; }
-.ray-2 { transform: rotate(-42deg); animation: beamPulse 2.2s infinite 0.5s; }
-.ray-3 { transform: rotate(-55deg); animation: beamPulse 2.2s infinite 1s; }
+.ray-1 { transform: rotate(-26deg); animation: beamPulse 2s infinite; }
+.ray-2 { transform: rotate(-41deg); animation: beamPulse 2s infinite 0.5s; }
+.ray-3 { transform: rotate(-55deg); animation: beamPulse 2s infinite 1s; }
 
 .surface-bar {
-    height: 54px;
-    background: linear-gradient(90deg, #2B1E16, #5C2B16);
+    height: 56px;
+    background: rgba(20, 8, 4, 0.85);
+    border-top: 1px solid rgba(255, 183, 3, 0.4);
     color: #FFB703;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 @keyframes pulseSun {
     from { transform: scale(1); }
-    to { transform: scale(1.08); }
+    to { transform: scale(1.09); }
 }
 
 @keyframes beamPulse {
-    0%, 100% { opacity: 0.35; }
+    0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
 }
 
+/* ==========================================================================
+   SEÇÕES E CARDS COM DISTRIBUIÇÃO DE AMARELO, LARANJA E VERMELHO
+   ========================================================================== */
 .section {
     padding: 5rem 0;
 }
 
 .bg-warm {
-    background-color: var(--bg-warm);
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
+    background: linear-gradient(180deg, #EFE7D6 0%, #F7E8D0 100%);
+    border-top: 1px solid rgba(251, 133, 0, 0.25);
+    border-bottom: 1px solid rgba(251, 133, 0, 0.25);
 }
 
 .section-header {
@@ -274,20 +296,24 @@ h1, h2, h3, h4 {
 
 .section-tag {
     display: inline-block;
-    color: var(--solar-orange);
+    background: rgba(208, 0, 0, 0.1);
+    color: var(--sun-red);
+    padding: 4px 12px;
+    border-radius: 4px;
     font-weight: 800;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     letter-spacing: 1.5px;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.7rem;
 }
 
 .section-header h2 {
     font-size: 2.2rem;
-    margin-bottom: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.9rem;
 }
 
 .section-header p {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-size: 1.05rem;
 }
 
@@ -298,36 +324,61 @@ h1, h2, h3, h4 {
 }
 
 .context-card {
-    background: var(--surface-white);
     padding: 2.2rem;
     border-radius: 16px;
-    border: 1px solid var(--border-subtle);
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--shadow-tech);
     transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .context-card:hover {
     transform: translateY(-6px);
 }
 
+/* Card 1: Subtom Amarelo Solar */
+.context-card:nth-child(1) {
+    background: linear-gradient(145deg, #FFF7DF 0%, #FDE8B0 100%);
+    border: 1px solid rgba(255, 183, 3, 0.55);
+    border-top: 5px solid var(--sun-yellow);
+}
+
+/* Card 2: Subtom Laranja Vibrante */
+.context-card:nth-child(2) {
+    background: linear-gradient(145deg, #FFF0E0 0%, #FDD6B5 100%);
+    border: 1px solid rgba(251, 133, 0, 0.5);
+    border-top: 5px solid var(--sun-orange);
+}
+
+/* Card 3: Subtom Vermelho Terracota */
+.context-card:nth-child(3) {
+    background: linear-gradient(145deg, #FDE8E4 0%, #F8C6BC 100%);
+    border: 1px solid rgba(208, 0, 0, 0.4);
+    border-top: 5px solid var(--sun-red);
+}
+
 .card-number {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 800;
-    color: var(--solar-orange);
-    margin-bottom: 0.8rem;
+    color: var(--sun-crimson);
+    margin-bottom: 0.7rem;
 }
 
 .context-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.8rem;
+    color: var(--text-primary);
 }
 
 .context-card p {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-size: 0.98rem;
 }
 
+/* ==========================================================================
+   ÁREA DA IMAGEM (QUADRADO BRANCO "A SER COLOCADA" DESTACADO)
+   ========================================================================== */
 .media-layout {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
@@ -341,178 +392,186 @@ h1, h2, h3, h4 {
 }
 
 .media-info p {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
 
 .tech-list {
     list-style: none;
-    background: var(--surface-white);
-    padding: 1.2rem 1.5rem;
+    background: linear-gradient(135deg, #FFF5E4, #FDE2C4);
+    padding: 1.3rem 1.5rem;
     border-radius: 12px;
-    border-left: 4px solid var(--solar-orange);
+    border-left: 5px solid var(--sun-red);
+    box-shadow: var(--shadow-tech);
 }
 
 .tech-list li {
     font-size: 0.92rem;
     margin-bottom: 0.4rem;
+    color: var(--text-primary);
 }
 
 .tech-list code {
-    background: #FFF0DB;
-    color: var(--solar-red);
-    padding: 2px 6px;
+    background: #FFFFFF;
+    color: var(--sun-red);
+    padding: 3px 8px;
     border-radius: 4px;
-    font-weight: 600;
+Use o código com cuidado.
+font-weight: 700;
+border: 1px solid rgba(208, 0, 0, 0.25);
 }
-
-/* QUADRADO BRANCO "A SER COLOCADA" */
+/* QUADRADO BRANCO SOLICITADO */
 .image-frame {
-    position: relative;
-    width: 100%;
-    min-height: 360px;
-    background-color: #FFFFFF;
-    border: 3px dashed var(--solar-amber);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
+position: relative;
+width: 100%;
+min-height: 360px;
+background-color: #FFFFFF;
+border: 3px dashed var(--sun-burnt);
+border-radius: 16px;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+box-shadow: 0 16px 38px rgba(157, 2, 8, 0.14);
 }
-
 .image-frame.has-image {
-    border: 1px solid var(--border-subtle);
+border: 2px solid var(--sun-orange);
 }
-
 .image-frame.has-image .placeholder-box {
-    display: none;
+display: none;
 }
-
 .image-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
 }
-
 .placeholder-box {
-    text-align: center;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
+text-align: center;
+padding: 2rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.6rem;
 }
-
 .placeholder-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--bg-warm);
-    color: var(--solar-orange);
-    font-size: 1.8rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.4rem;
+width: 56px;
+height: 56px;
+border-radius: 50%;
+background: linear-gradient(135deg, #FFF3D1, #FFD6A5);
+color: var(--sun-red);
+font-size: 1.9rem;
+font-weight: 800;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 0.4rem;
 }
-
 .placeholder-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--solar-red);
-    letter-spacing: 1px;
+font-family: 'Montserrat', sans-serif;
+font-size: 1.45rem;
+font-weight: 800;
+color: var(--sun-red);
+letter-spacing: 1.2px;
 }
-
 .placeholder-sub {
-    font-size: 0.92rem;
-    color: var(--text-muted);
+font-size: 0.92rem;
+color: var(--text-secondary);
 }
-
+/* ==========================================================================
+QUESTÕES ORIENTADORAS (CARDS EM TONS QUENTES TECNOLÓGICOS)
+========================================================================== */
 .qa-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+display: flex;
+flex-direction: column;
+gap: 2rem;
 }
-
 .qa-card {
-    background: var(--surface-white);
-    border-radius: 16px;
-    padding: 2.5rem;
-    border: 1px solid var(--border-subtle);
-    border-left: 6px solid var(--solar-orange);
-    box-shadow: var(--shadow-card);
+border-radius: 16px;
+padding: 2.5rem;
+box-shadow: var(--shadow-tech);
 }
-
+/* Questão 1: Tom Amarelo-Âmbar Suave */
+.qa-card:nth-child(1) {
+background: linear-gradient(135deg, #FAF5E8 0%, #FBEAC3 100%);
+border: 1px solid rgba(255, 183, 3, 0.45);
+border-left: 7px solid var(--sun-yellow);
+}
+/* Questão 2: Tom Laranja-Pêssego Tecnológico */
+.qa-card:nth-child(2) {
+background: linear-gradient(135deg, #FAF2E8 0%, #FAD9BC 100%);
+border: 1px solid rgba(251, 133, 0, 0.45);
+border-left: 7px solid var(--sun-orange);
+}
+/* Questão 3: Tom Vermelho-Coral Suave */
+.qa-card:nth-child(3) {
+background: linear-gradient(135deg, #FAF0EC 0%, #F7CFC6 100%);
+border: 1px solid rgba(208, 0, 0, 0.4);
+border-left: 7px solid var(--sun-red);
+}
 .qa-header {
-    margin-bottom: 1.2rem;
+margin-bottom: 1.2rem;
 }
-
 .qa-badge {
-    display: inline-block;
-    background: var(--gradient-solar);
-    color: #FFFFFF;
-    font-size: 0.78rem;
-    font-weight: 700;
-    padding: 0.3rem 0.8rem;
-    border-radius: 6px;
-    margin-bottom: 0.6rem;
+display: inline-block;
+background: var(--grad-solar);
+color: #FFFFFF;
+font-size: 0.78rem;
+font-weight: 800;
+letter-spacing: 0.6px;
+padding: 0.35rem 0.9rem;
+border-radius: 6px;
+margin-bottom: 0.6rem;
 }
-
 .qa-header h3 {
-    font-size: 1.4rem;
+font-size: 1.42rem;
+color: var(--text-primary);
 }
-
 .qa-body p {
-    color: var(--text-muted);
-    margin-bottom: 1rem;
+color: var(--text-secondary);
+margin-bottom: 1rem;
 }
-
 .qa-body p:last-child {
-    margin-bottom: 0;
+margin-bottom: 0;
 }
-
 .comparison-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 1.2rem;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1.5rem;
+margin-top: 1.2rem;
 }
-
 .comp-item {
-    background: var(--bg-warm);
-    padding: 1.4rem;
-    border-radius: 12px;
-    border: 1px solid rgba(251, 133, 0, 0.25);
+background: rgba(255, 253, 248, 0.75);
+padding: 1.4rem;
+border-radius: 12px;
+border: 1px solid rgba(232, 93, 4, 0.3);
 }
-
 .comp-item h4 {
-    color: var(--solar-red);
-    margin-bottom: 0.5rem;
-    font-size: 1.05rem;
+color: var(--sun-crimson);
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
 }
-
+/* ==========================================================================
+SIMULADOR INTERATIVO (PAINEL ESCURO TECNOLÓGICO)
+========================================================================== */
 .bg-dark {
-    background-color: var(--bg-dark);
-    color: #FFFFFF;
+background: var(--grad-tech-dark);
+color: #FFFFFF;
+border-top: 3px solid var(--sun-orange);
 }
-
 .section-header.light h2 {
-    color: #FFFFFF;
+color: #FFFFFF;
 }
-
 .section-header.light p {
-    color: #D6C7BE;
+color: #EAD8CE;
 }
-
 .simulator-box {
-background: #2B1B12;
-border: 1px solid rgba(255, 183, 3, 0.25);
+background: rgba(20, 8, 4, 0.68);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 183, 3, 0.35);
 border-radius: 20px;
 padding: 2.5rem;
+box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 .sim-controls {
 display: flex;
@@ -521,10 +580,10 @@ flex-wrap: wrap;
 margin-bottom: 2rem;
 }
 .sim-btn {
-background: rgba(255, 255, 255, 0.06);
-border: 1px solid rgba(255, 183, 3, 0.3);
+background: rgba(255, 255, 255, 0.08);
+border: 1px solid rgba(255, 183, 3, 0.4);
 color: #FFFFFF;
-padding: 0.8rem 1.4rem;
+padding: 0.85rem 1.4rem;
 border-radius: 10px;
 font-family: 'Plus Jakarta Sans', sans-serif;
 font-weight: 600;
@@ -532,33 +591,34 @@ cursor: pointer;
 transition: all 0.25s ease;
 }
 .sim-btn.active, .sim-btn:hover {
-background: var(--gradient-solar);
+background: var(--grad-solar);
 border-color: transparent;
 color: #FFFFFF;
+box-shadow: 0 6px 18px rgba(251, 133, 0, 0.4);
 }
 .sim-results h3 {
-color: var(--solar-yellow);
-font-size: 1.4rem;
+color: var(--sun-yellow);
+font-size: 1.45rem;
 margin-bottom: 0.5rem;
 }
 .sim-results p {
-color: #D6C7BE;
+color: #EAD8CE;
 margin-bottom: 1.8rem;
 }
 .bar-group {
-margin-bottom: 1.2rem;
+margin-bottom: 1.3rem;
 }
 .bar-label {
 display: flex;
 justify-content: space-between;
-font-size: 0.92rem;
+font-size: 0.94rem;
 font-weight: 600;
-margin-bottom: 0.4rem;
+margin-bottom: 0.45rem;
 }
 .bar-track {
 width: 100%;
-height: 12px;
-background: rgba(255, 255, 255, 0.1);
+height: 14px;
+background: rgba(255, 255, 255, 0.12);
 border-radius: 10px;
 overflow: hidden;
 }
@@ -567,14 +627,17 @@ height: 100%;
 border-radius: 10px;
 transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.fill-abs { background: #D00000; }
-.fill-ref { background: #FFB703; }
-.fill-tra { background: #FB8500; }
+.fill-abs { background: linear-gradient(90deg, #E85D04, #D00000); }
+.fill-ref { background: linear-gradient(90deg, #FFD166, #FFB703); }
+.fill-tra { background: linear-gradient(90deg, #FFB703, #FB8500); }
+/* ==========================================================================
+RODAPÉ
+========================================================================== */
 .footer {
-background: #140C07;
-color: #A8988E;
+background: #1A0A04;
+color: #C7B2A6;
 padding: 2.5rem 0;
-border-top: 1px solid rgba(255, 183, 3, 0.15);
+border-top: 2px solid rgba(251, 133, 0, 0.3);
 }
 .footer-content {
 display: flex;
