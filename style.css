@@ -823,3 +823,74 @@ font-size: 2.2rem;
     font-size: 0.92rem;
     letter-spacing: 0.5px;
 }
+/* === 1. BOTÕES DO TOPO ("Relatório Técnico" e "Ler Contextualização") === */
+header a, 
+.hero a, 
+.hero button,
+a[href="#contextualizacao"],
+.btn-primary, 
+.badge-hero {
+    background: linear-gradient(135deg, #D00000 0%, #9D0208 100%) !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFB703 !important;
+    box-shadow: 0 4px 15px rgba(157, 2, 8, 0.35) !important;
+    font-weight: 800 !important;
+}
+
+header a:hover, 
+.hero a:hover,
+a[href="#contextualizacao"]:hover {
+    background: #FFB703 !important;
+    color: #120703 !important;
+}
+
+/* === 2. TEXTOS "QUESTÃO 01", "QUESTÃO 02" E "QUESTÃO 03" === */
+.question-tag, 
+.questao-tag, 
+.question-number,
+.card-question span,
+.questions-grid span:first-child,
+article span:first-child {
+    color: #C84B00 !important; /* Laranja escuro intenso */
+    background-color: #FFE8CC !important; /* Fundo creme suave para destacar */
+    border: 1px solid #FB8500 !important;
+    font-size: 1.05rem !important; /* Tamanho maior e bem legível */
+    font-weight: 800 !important;
+    padding: 5px 14px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+    margin-bottom: 0.6rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+/* === 3. BOTÕES DO SIMULADOR (ANTES DE CLICAR — ALTO CONTRASTE) === */
+.sim-btn {
+    background: #2B1108 !important; /* Fundo escuro sólido */
+    border: 2px solid #FFB703 !important; /* Borda amarelo ouro brilhante */
+    color: #FFFFFF !important; /* Texto branco 100% nítido */
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+    opacity: 1 !important;
+}
+
+.sim-btn .dot {
+    background: #FFB703 !important;
+    opacity: 1 !important;
+}
+
+/* Efeito ao passar o mouse por cima antes de clicar */
+.sim-btn:hover {
+    background: #4A1C0D !important;
+    border-color: #FFFFFF !important;
+    color: #FFB703 !important;
+    transform: translateY(-2px);
+}
+
+/* Estilo quando o botão ESTÁ selecionado */
+.sim-btn.active {
+    background: linear-gradient(135deg, #FB8500 0%, #D00000 100%) !important;
+    border: 2px solid #FFFFFF !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 0 20px rgba(255, 183, 3, 0.7) !important;
+}
