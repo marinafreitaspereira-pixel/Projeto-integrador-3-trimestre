@@ -1,29 +1,18 @@
-/* ==========================================================================
-   VARIÁVEIS DE CORES (OFF-WHITE & ESPECTRO SOLAR TECNOLÓGICO)
-   ========================================================================== */
+```css
 :root {
-    /* Tons do Sol: Amarelo, Laranja e Vermelho */
     --sun-yellow: #FFB703;
-    --sun-gold: #FCA311;
     --sun-orange: #FB8500;
     --sun-burnt: #E85D04;
     --sun-red: #D00000;
     --sun-crimson: #9D0208;
-    --sun-dark: #241109;
-
-    /* Fundos Off-White e Superfícies */
-    --bg-offwhite: #F5F0E6;
-    --bg-offwhite-alt: #EDE5D5;
-    --card-cream: #FAF7F0;
     
-    /* Textos */
-    --text-primary: #22140E;
-    --text-secondary: #59443A;
+    --bg-offwhite: #F3EDE2;
+    --text-primary: #22130C;
+    --text-secondary: #523E34;
     
-    /* Gradientes Tecnológicos */
     --grad-solar: linear-gradient(135deg, #FFB703 0%, #FB8500 50%, #D00000 100%);
-    --grad-tech-dark: linear-gradient(145deg, #2B130A 0%, #4A1809 55%, #7A1C08 100%);
-    --shadow-tech: 0 14px 34px rgba(157, 2, 8, 0.10);
+    --grad-tech-dark: linear-gradient(145deg, #240F07 0%, #4A1608 55%, #7D1B07 100%);
+    --shadow-tech: 0 14px 32px rgba(157, 2, 8, 0.12);
 }
 
 * {
@@ -38,12 +27,11 @@ html {
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-offwhite);
-    /* Grade tecnológica sutil no fundo off-white */
+    background-color: #F3EDE2;
     background-image: 
-        linear-gradient(rgba(232, 93, 4, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232, 93, 4, 0.05) 1px, transparent 1px);
-    background-size: 36px 36px;
+        linear-gradient(rgba(232, 93, 4, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 93, 4, 0.06) 1px, transparent 1px);
+    background-size: 34px 34px;
     color: var(--text-primary);
     line-height: 1.7;
     overflow-x: hidden;
@@ -60,16 +48,13 @@ h1, h2, h3, h4 {
     margin: 0 auto;
 }
 
-/* ==========================================================================
-   BARRA DE NAVEGAÇÃO (GLASSMORPHISM OFF-WHITE)
-   ========================================================================== */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(245, 240, 230, 0.88);
-    backdrop-filter: blur(14px);
-    border-bottom: 2px solid rgba(251, 133, 0, 0.25);
+    background: rgba(243, 237, 226, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid rgba(251, 133, 0, 0.3);
     padding: 1rem 0;
 }
 
@@ -93,7 +78,7 @@ h1, h2, h3, h4 {
     height: 26px;
     border-radius: 50%;
     background: var(--grad-solar);
-    box-shadow: 0 0 16px rgba(255, 183, 3, 0.85);
+    box-shadow: 0 0 16px rgba(255, 183, 3, 0.9);
 }
 
 .nav-links {
@@ -105,7 +90,7 @@ h1, h2, h3, h4 {
 .nav-links a {
     text-decoration: none;
     color: var(--text-secondary);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.95rem;
     transition: color 0.3s ease;
 }
@@ -122,18 +107,16 @@ h1, h2, h3, h4 {
     text-decoration: none;
     font-weight: 700;
     font-size: 0.92rem;
-    letter-spacing: 0.3px;
-    box-shadow: 0 6px 20px rgba(208, 0, 0, 0.28);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 6px 20px rgba(208, 0, 0, 0.3);
+    transition: transform 0.25s ease;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba(208, 0, 0, 0.42);
 }
 
 .btn-outline {
-    background: rgba(255, 183, 3, 0.14);
+    background: rgba(255, 183, 3, 0.18);
     border: 2px solid var(--sun-burnt);
     color: var(--sun-crimson);
     padding: 0.7rem 1.45rem;
@@ -149,24 +132,10 @@ h1, h2, h3, h4 {
     color: #FFFFFF;
 }
 
-/* ==========================================================================
-   HERO SECTION (DESTAQUE TECNOLÓGICO)
-   ========================================================================== */
 .hero {
     position: relative;
-    padding: 5rem 0;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(232, 93, 4, 0.18);
-}
-
-.hero-glow {
-    position: absolute;
-    top: -120px;
-    right: -80px;
-    width: 650px;
-    height: 650px;
-    background: radial-gradient(circle, rgba(255, 183, 3, 0.28) 0%, rgba(232, 93, 4, 0.12) 45%, transparent 72%);
-    z-index: -1;
+    padding: 4.5rem 0;
+    border-bottom: 1px solid rgba(232, 93, 4, 0.2);
 }
 
 .hero-grid {
@@ -178,8 +147,8 @@ h1, h2, h3, h4 {
 
 .badge {
     display: inline-block;
-    background: linear-gradient(90deg, rgba(255, 183, 3, 0.25), rgba(208, 0, 0, 0.15));
-    border: 1px solid rgba(232, 93, 4, 0.35);
+    background: linear-gradient(90deg, #FFE5A8, #FFCCB8);
+    border: 1px solid rgba(232, 93, 4, 0.4);
     color: var(--sun-crimson);
     font-weight: 800;
     font-size: 0.76rem;
@@ -190,12 +159,10 @@ h1, h2, h3, h4 {
 }
 
 .hero-text h1 {
-    font-size: 2.85rem;
+    font-size: 2.8rem;
     font-weight: 800;
     margin-bottom: 1.2rem;
-    background: linear-gradient(90deg, #241109 0%, #9D0208 55%, #E85D04 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #9D0208;
 }
 
 .hero-text p {
@@ -211,14 +178,13 @@ h1, h2, h3, h4 {
     flex-wrap: wrap;
 }
 
-/* Painel Animado Escuro Tecnológico */
 .solar-diagram {
     position: relative;
-    height: 330px;
+    height: 320px;
     background: var(--grad-tech-dark);
     border-radius: 20px;
-    border: 2px solid rgba(255, 183, 3, 0.45);
-    box-shadow: 0 18px 40px rgba(157, 2, 8, 0.24);
+    border: 2px solid #FFB703;
+    box-shadow: 0 18px 40px rgba(157, 2, 8, 0.28);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -227,21 +193,21 @@ h1, h2, h3, h4 {
 
 .sun-orb {
     position: absolute;
-    top: 30px;
+    top: 28px;
     left: 34px;
     width: 66px;
     height: 66px;
     border-radius: 50%;
     background: radial-gradient(circle, #FFF3B0 10%, #FFB703 45%, #E85D04 90%);
     box-shadow: 0 0 35px #FFB703, 0 0 70px #FB8500;
-    animation: pulseSun 2.8s infinite alternate ease-in-out;
+    animation: pulseSun 2.5s infinite alternate ease-in-out;
 }
 
 .ray {
     position: absolute;
     top: 88px;
     left: 88px;
-    width: 3px;
+    width: 4px;
     height: 185px;
     background: linear-gradient(to bottom, #FFB703, #FB8500, #D00000);
     transform-origin: top left;
@@ -252,9 +218,9 @@ h1, h2, h3, h4 {
 .ray-3 { transform: rotate(-55deg); animation: beamPulse 2s infinite 1s; }
 
 .surface-bar {
-    height: 56px;
-    background: rgba(20, 8, 4, 0.85);
-    border-top: 1px solid rgba(255, 183, 3, 0.4);
+    height: 54px;
+    background: rgba(18, 7, 3, 0.9);
+    border-top: 2px solid #FB8500;
     color: #FFB703;
     display: flex;
     align-items: center;
@@ -267,7 +233,7 @@ h1, h2, h3, h4 {
 
 @keyframes pulseSun {
     from { transform: scale(1); }
-    to { transform: scale(1.09); }
+    to { transform: scale(1.1); }
 }
 
 @keyframes beamPulse {
@@ -275,17 +241,14 @@ h1, h2, h3, h4 {
     50% { opacity: 1; }
 }
 
-/* ==========================================================================
-   SEÇÕES E CARDS COM DISTRIBUIÇÃO DE AMARELO, LARANJA E VERMELHO
-   ========================================================================== */
 .section {
     padding: 5rem 0;
 }
 
 .bg-warm {
-    background: linear-gradient(180deg, #EFE7D6 0%, #F7E8D0 100%);
-    border-top: 1px solid rgba(251, 133, 0, 0.25);
-    border-bottom: 1px solid rgba(251, 133, 0, 0.25);
+    background: linear-gradient(180deg, #EAE0CE 0%, #F2DEC0 100%);
+    border-top: 2px solid rgba(251, 133, 0, 0.3);
+    border-bottom: 2px solid rgba(251, 133, 0, 0.3);
 }
 
 .section-header {
@@ -296,8 +259,9 @@ h1, h2, h3, h4 {
 
 .section-tag {
     display: inline-block;
-    background: rgba(208, 0, 0, 0.1);
-    color: var(--sun-red);
+    background: #FFE2B3;
+    border: 1px solid #FB8500;
+    color: #9D0208;
     padding: 4px 12px;
     border-radius: 4px;
     font-weight: 800;
@@ -328,41 +292,36 @@ h1, h2, h3, h4 {
     border-radius: 16px;
     box-shadow: var(--shadow-tech);
     transition: transform 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
 .context-card:hover {
     transform: translateY(-6px);
 }
 
-/* Card 1: Subtom Amarelo Solar */
-.context-card:nth-child(1) {
-    background: linear-gradient(145deg, #FFF7DF 0%, #FDE8B0 100%);
-    border: 1px solid rgba(255, 183, 3, 0.55);
-    border-top: 5px solid var(--sun-yellow);
+.card-yellow {
+    background: linear-gradient(145deg, #FFF2CC 0%, #FFE08A 100%);
+    border: 1px solid #FFB703;
+    border-top: 6px solid #FFB703;
 }
 
-/* Card 2: Subtom Laranja Vibrante */
-.context-card:nth-child(2) {
-    background: linear-gradient(145deg, #FFF0E0 0%, #FDD6B5 100%);
-    border: 1px solid rgba(251, 133, 0, 0.5);
-    border-top: 5px solid var(--sun-orange);
+.card-orange {
+    background: linear-gradient(145deg, #FFE4CC 0%, #FFC28F 100%);
+    border: 1px solid #FB8500;
+    border-top: 6px solid #FB8500;
 }
 
-/* Card 3: Subtom Vermelho Terracota */
-.context-card:nth-child(3) {
-    background: linear-gradient(145deg, #FDE8E4 0%, #F8C6BC 100%);
-    border: 1px solid rgba(208, 0, 0, 0.4);
-    border-top: 5px solid var(--sun-red);
+.card-red {
+    background: linear-gradient(145deg, #FAD6CF 0%, #F4A99A 100%);
+    border: 1px solid #D00000;
+    border-top: 6px solid #D00000;
 }
 
 .card-number {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.9rem;
+    font-size: 2rem;
     font-weight: 800;
-    color: var(--sun-crimson);
-    margin-bottom: 0.7rem;
+    color: #9D0208;
+    margin-bottom: 0.6rem;
 }
 
 .context-card h3 {
@@ -372,13 +331,10 @@ h1, h2, h3, h4 {
 }
 
 .context-card p {
-    color: var(--text-secondary);
+    color: #3D2B22;
     font-size: 0.98rem;
 }
 
-/* ==========================================================================
-   ÁREA DA IMAGEM (QUADRADO BRANCO "A SER COLOCADA" DESTACADO)
-   ========================================================================== */
 .media-layout {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
@@ -398,10 +354,10 @@ h1, h2, h3, h4 {
 
 .tech-list {
     list-style: none;
-    background: linear-gradient(135deg, #FFF5E4, #FDE2C4);
+    background: linear-gradient(135deg, #FFE8C2, #FFCBA4);
     padding: 1.3rem 1.5rem;
     border-radius: 12px;
-    border-left: 5px solid var(--sun-red);
+    border-left: 6px solid #D00000;
     box-shadow: var(--shadow-tech);
 }
 
@@ -413,108 +369,116 @@ h1, h2, h3, h4 {
 
 .tech-list code {
     background: #FFFFFF;
-    color: var(--sun-red);
+    color: #D00000;
     padding: 3px 8px;
     border-radius: 4px;
-Use o código com cuidado.
-font-weight: 700;
-border: 1px solid rgba(208, 0, 0, 0.25);
+    font-weight: 700;
+    border: 1px solid #E85D04;
 }
-/* QUADRADO BRANCO SOLICITADO */
+
+/* QUADRADO BRANCO RESERVADO PARA A IMAGEM */
 .image-frame {
-position: relative;
-width: 100%;
-min-height: 360px;
-background-color: #FFFFFF;
-border: 3px dashed var(--sun-burnt);
-border-radius: 16px;
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-box-shadow: 0 16px 38px rgba(157, 2, 8, 0.14);
+    position: relative;
+    width: 100%;
+    min-height: 360px;
+    background-color: #FFFFFF;
+    border: 3px dashed #E85D04;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 16px 38px rgba(157, 2, 8, 0.16);
 }
+
 .image-frame.has-image {
-border: 2px solid var(--sun-orange);
+    border: 2px solid #FB8500;
 }
+
 .image-frame.has-image .placeholder-box {
-display: none;
+    display: none;
 }
+
 .image-frame img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
+
 .placeholder-box {
-text-align: center;
-padding: 2rem;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 0.6rem;
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
 }
+
 .placeholder-icon {
-width: 56px;
-height: 56px;
-border-radius: 50%;
-background: linear-gradient(135deg, #FFF3D1, #FFD6A5);
-color: var(--sun-red);
-font-size: 1.9rem;
-font-weight: 800;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: 0.4rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFE5A8, #FFC28F);
+    color: #D00000;
+    font-size: 1.9rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.4rem;
 }
+
 .placeholder-title {
-font-family: 'Montserrat', sans-serif;
-font-size: 1.45rem;
-font-weight: 800;
-color: var(--sun-red);
-letter-spacing: 1.2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #D00000;
+    letter-spacing: 1.2px;
 }
+
 .placeholder-sub {
-font-size: 0.92rem;
-color: var(--text-secondary);
+    font-size: 0.92rem;
+    color: var(--text-secondary);
 }
-/* ==========================================================================
-QUESTÕES ORIENTADORAS (CARDS EM TONS QUENTES TECNOLÓGICOS)
-========================================================================== */
+
 .qa-container {
-display: flex;
-flex-direction: column;
-gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
+
 .qa-card {
-border-radius: 16px;
-padding: 2.5rem;
-box-shadow: var(--shadow-tech);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-tech);
 }
-/* Questão 1: Tom Amarelo-Âmbar Suave */
-.qa-card:nth-child(1) {
-background: linear-gradient(135deg, #FAF5E8 0%, #FBEAC3 100%);
-border: 1px solid rgba(255, 183, 3, 0.45);
-border-left: 7px solid var(--sun-yellow);
+
+.qa-yellow {
+    background: linear-gradient(135deg, #FFF5D6 0%, #FFE49E 100%);
+    border: 1px solid #FFB703;
+    border-left: 8px solid #FFB703;
 }
-/* Questão 2: Tom Laranja-Pêssego Tecnológico */
-.qa-card:nth-child(2) {
-background: linear-gradient(135deg, #FAF2E8 0%, #FAD9BC 100%);
-border: 1px solid rgba(251, 133, 0, 0.45);
-border-left: 7px solid var(--sun-orange);
+
+.qa-orange {
+    background: linear-gradient(135deg, #FFE9D6 0%, #FFCCA3 100%);
+    border: 1px solid #FB8500;
+    border-left: 8px solid #FB8500;
 }
-/* Questão 3: Tom Vermelho-Coral Suave */
-.qa-card:nth-child(3) {
-background: linear-gradient(135deg, #FAF0EC 0%, #F7CFC6 100%);
-border: 1px solid rgba(208, 0, 0, 0.4);
-border-left: 7px solid var(--sun-red);
+
+.qa-red {
+    background: linear-gradient(135deg, #FCE0DA 0%, #F7B5A8 100%);
+    border: 1px solid #D00000;
+    border-left: 8px solid #D00000;
 }
+
 .qa-header {
-margin-bottom: 1.2rem;
+    margin-bottom: 1.2rem;
 }
+
 .qa-badge {
-display: inline-block;
-background: var(--grad-solar);
+    display: inline-block;
+    background: var(--grad-solar);
 color: #FFFFFF;
 font-size: 0.78rem;
 font-weight: 800;
@@ -528,7 +492,7 @@ font-size: 1.42rem;
 color: var(--text-primary);
 }
 .qa-body p {
-color: var(--text-secondary);
+color: #36241B;
 margin-bottom: 1rem;
 }
 .qa-body p:last-child {
@@ -541,37 +505,33 @@ gap: 1.5rem;
 margin-top: 1.2rem;
 }
 .comp-item {
-background: rgba(255, 253, 248, 0.75);
+background: rgba(255, 250, 240, 0.85);
 padding: 1.4rem;
 border-radius: 12px;
-border: 1px solid rgba(232, 93, 4, 0.3);
+border: 1px solid #E85D04;
 }
 .comp-item h4 {
-color: var(--sun-crimson);
+color: #9D0208;
 margin-bottom: 0.5rem;
 font-size: 1.05rem;
 }
-/* ==========================================================================
-SIMULADOR INTERATIVO (PAINEL ESCURO TECNOLÓGICO)
-========================================================================== */
 .bg-dark {
 background: var(--grad-tech-dark);
 color: #FFFFFF;
-border-top: 3px solid var(--sun-orange);
+border-top: 4px solid #FB8500;
 }
 .section-header.light h2 {
 color: #FFFFFF;
 }
 .section-header.light p {
-color: #EAD8CE;
+color: #F2D8C9;
 }
 .simulator-box {
-background: rgba(20, 8, 4, 0.68);
-backdrop-filter: blur(10px);
-border: 1px solid rgba(255, 183, 3, 0.35);
+background: rgba(18, 7, 3, 0.72);
+border: 1px solid #FFB703;
 border-radius: 20px;
 padding: 2.5rem;
-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 .sim-controls {
 display: flex;
@@ -580,13 +540,13 @@ flex-wrap: wrap;
 margin-bottom: 2rem;
 }
 .sim-btn {
-background: rgba(255, 255, 255, 0.08);
-border: 1px solid rgba(255, 183, 3, 0.4);
+background: rgba(255, 255, 255, 0.1);
+border: 1px solid #FFB703;
 color: #FFFFFF;
 padding: 0.85rem 1.4rem;
 border-radius: 10px;
 font-family: 'Plus Jakarta Sans', sans-serif;
-font-weight: 600;
+font-weight: 700;
 cursor: pointer;
 transition: all 0.25s ease;
 }
@@ -594,15 +554,14 @@ transition: all 0.25s ease;
 background: var(--grad-solar);
 border-color: transparent;
 color: #FFFFFF;
-box-shadow: 0 6px 18px rgba(251, 133, 0, 0.4);
 }
 .sim-results h3 {
-color: var(--sun-yellow);
+color: #FFB703;
 font-size: 1.45rem;
 margin-bottom: 0.5rem;
 }
 .sim-results p {
-color: #EAD8CE;
+color: #F2D8C9;
 margin-bottom: 1.8rem;
 }
 .bar-group {
@@ -612,32 +571,29 @@ margin-bottom: 1.3rem;
 display: flex;
 justify-content: space-between;
 font-size: 0.94rem;
-font-weight: 600;
+font-weight: 700;
 margin-bottom: 0.45rem;
 }
 .bar-track {
 width: 100%;
 height: 14px;
-background: rgba(255, 255, 255, 0.12);
+background: rgba(255, 255, 255, 0.15);
 border-radius: 10px;
 overflow: hidden;
 }
 .bar-fill {
 height: 100%;
 border-radius: 10px;
-transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+transition: width 0.6s ease;
 }
 .fill-abs { background: linear-gradient(90deg, #E85D04, #D00000); }
-.fill-ref { background: linear-gradient(90deg, #FFD166, #FFB703); }
+.fill-ref { background: linear-gradient(90deg, #FFE08A, #FFB703); }
 .fill-tra { background: linear-gradient(90deg, #FFB703, #FB8500); }
-/* ==========================================================================
-RODAPÉ
-========================================================================== */
 .footer {
-background: #1A0A04;
-color: #C7B2A6;
+background: #170803;
+color: #D6BFB2;
 padding: 2.5rem 0;
-border-top: 2px solid rgba(251, 133, 0, 0.3);
+border-top: 2px solid #FB8500;
 }
 .footer-content {
 display: flex;
@@ -660,3 +616,6 @@ display: none;
 font-size: 2.2rem;
 }
 }
+
+---
+
