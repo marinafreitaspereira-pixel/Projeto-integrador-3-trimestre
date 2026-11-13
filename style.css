@@ -1,6 +1,4 @@
-/* ==========================================================================
-   VARIÁVEIS DE CORES (PALETA SOLAR EMPRESARIAL) E TIPOGRAFIA
-   ========================================================================== */
+```css
 :root {
     --solar-yellow: #FFB703;
     --solar-amber: #FB8500;
@@ -51,14 +49,11 @@ h1, h2, h3, h4 {
     margin: 0 auto;
 }
 
-/* ==========================================================================
-   NAVEGAÇÃO SUPERIOR
-   ========================================================================== */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 253, 249, 0.92);
+    background: rgba(255, 253, 249, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-subtle);
     padding: 1rem 0;
@@ -138,13 +133,16 @@ h1, h2, h3, h4 {
     color: #FFFFFF;
 }
 
-/* ==========================================================================
-   HERO & ANIMAÇÃO SOLAR
-   ========================================================================== */
 .hero {
     position: relative;
-    padding: 5.5rem 0;
+    padding: 5rem 0;
     overflow: hidden;
+    animation: fadeUp 0.8s ease-out;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-glow {
@@ -177,12 +175,10 @@ h1, h2, h3, h4 {
 }
 
 .hero-text h1 {
-    font-size: 2.9rem;
+    font-size: 2.8rem;
     font-weight: 800;
     margin-bottom: 1.2rem;
-    background: linear-gradient(90deg, #2B1E16 0%, #9D0208 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #9D0208;
 }
 
 .hero-text p {
@@ -198,7 +194,6 @@ h1, h2, h3, h4 {
     flex-wrap: wrap;
 }
 
-/* Diagrama Animado de Radiação */
 .solar-diagram {
     position: relative;
     height: 320px;
@@ -261,11 +256,8 @@ h1, h2, h3, h4 {
     50% { opacity: 1; }
 }
 
-/* ==========================================================================
-   SEÇÕES GERAIS E CARDS DE CONTEXTUALIZAÇÃO
-   ========================================================================== */
 .section {
-    padding: 5.5rem 0;
+    padding: 5rem 0;
 }
 
 .bg-warm {
@@ -322,9 +314,7 @@ h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
     font-weight: 800;
-    background: var(--gradient-solar);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--solar-orange);
     margin-bottom: 0.8rem;
 }
 
@@ -338,9 +328,6 @@ h1, h2, h3, h4 {
     font-size: 0.98rem;
 }
 
-/* ==========================================================================
-   QUADRADO BRANCO RESERVADO PARA A IMAGEM ("A SER COLOCADA")
-   ========================================================================== */
 .media-layout {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
@@ -379,7 +366,7 @@ h1, h2, h3, h4 {
     font-weight: 600;
 }
 
-/* Estilo do Quadrado Branco */
+/* QUADRADO BRANCO "A SER COLOCADA" */
 .image-frame {
     position: relative;
     width: 100%;
@@ -394,7 +381,6 @@ h1, h2, h3, h4 {
     box-shadow: var(--shadow-card);
 }
 
-/* Quando a imagem existir no GitHub, a borda tracejada some automaticamente */
 .image-frame.has-image {
     border: 1px solid var(--border-subtle);
 }
@@ -435,86 +421,93 @@ h1, h2, h3, h4 {
 
 .placeholder-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: var(--solar-red);
     letter-spacing: 1px;
 }
 
 .placeholder-sub {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     color: var(--text-muted);
 }
 
-/* ==========================================================================
-QUESTÕES ORIENTADORAS (CARDS DETALHADOS)
-========================================================================== */
 .qa-container {
-display: flex;
-flex-direction: column;
-gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
+
 .qa-card {
-background: var(--surface-white);
-border-radius: 16px;
-padding: 2.5rem;
-border: 1px solid var(--border-subtle);
-border-left: 6px solid var(--solar-orange);
-box-shadow: var(--shadow-card);
+    background: var(--surface-white);
+    border-radius: 16px;
+    padding: 2.5rem;
+    border: 1px solid var(--border-subtle);
+    border-left: 6px solid var(--solar-orange);
+    box-shadow: var(--shadow-card);
 }
+
 .qa-header {
-margin-bottom: 1.2rem;
+    margin-bottom: 1.2rem;
 }
+
 .qa-badge {
-display: inline-block;
-background: var(--gradient-solar);
-color: #FFFFFF;
-font-size: 0.78rem;
-font-weight: 700;
-padding: 0.3rem 0.8rem;
-border-radius: 6px;
-margin-bottom: 0.6rem;
+    display: inline-block;
+    background: var(--gradient-solar);
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 0.6rem;
 }
+
 .qa-header h3 {
-font-size: 1.4rem;
+    font-size: 1.4rem;
 }
+
 .qa-body p {
-color: var(--text-muted);
-margin-bottom: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
 }
+
 .qa-body p:last-child {
-margin-bottom: 0;
+    margin-bottom: 0;
 }
+
 .comparison-box {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 1.5rem;
-margin-top: 1.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
 }
+
 .comp-item {
-background: var(--bg-warm);
-padding: 1.4rem;
-border-radius: 12px;
-border: 1px solid rgba(251, 133, 0, 0.25);
+    background: var(--bg-warm);
+    padding: 1.4rem;
+    border-radius: 12px;
+    border: 1px solid rgba(251, 133, 0, 0.25);
 }
+
 .comp-item h4 {
-color: var(--solar-red);
-margin-bottom: 0.5rem;
-font-size: 1.05rem;
+    color: var(--solar-red);
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
 }
-/* ==========================================================================
-SIMULADOR INTERATIVO
-========================================================================== */
+
 .bg-dark {
-background-color: var(--bg-dark);
-color: #FFFFFF;
+    background-color: var(--bg-dark);
+    color: #FFFFFF;
 }
+
 .section-header.light h2 {
-color: #FFFFFF;
+    color: #FFFFFF;
 }
+
 .section-header.light p {
-color: #D6C7BE;
+    color: #D6C7BE;
 }
+
 .simulator-box {
 background: #2B1B12;
 border: 1px solid rgba(255, 183, 3, 0.25);
@@ -577,9 +570,6 @@ transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 .fill-abs { background: #D00000; }
 .fill-ref { background: #FFB703; }
 .fill-tra { background: #FB8500; }
-/* ==========================================================================
-RODAPÉ E ANIMAÇÕES DE ROLAGEM
-========================================================================== */
 .footer {
 background: #140C07;
 color: #A8988E;
@@ -595,15 +585,6 @@ gap: 1rem;
 }
 .footer .logo {
 color: #FFFFFF;
-}
-.reveal {
-opacity: 0;
-transform: translateY(25px);
-transition: all 0.7s ease-out;
-}
-.reveal.visible {
-opacity: 1;
-transform: translateY(0);
 }
 @media (max-width: 850px) {
 .hero-grid, .media-layout, .comparison-box {
