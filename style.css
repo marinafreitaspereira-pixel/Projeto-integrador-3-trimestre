@@ -616,6 +616,76 @@ display: none;
 font-size: 2.2rem;
 }
 }
+<section id="simulador" class="section bg-warm">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">04. LABORATÓRIO INTERATIVO</span>
+            <h2>Simulador de Comportamento Óptico</h2>
+            <p>Selecione um material abaixo para visualizar as taxas médias de absorção, reflexão e transmissão solar.</p>
+        </div>
+
+        <div class="sim-controls">
+            <button class="sim-btn active" onclick="mudarMaterial('asfalto', this)">Asfalto / Superfície Preta</button>
+            <button class="sim-btn" onclick="mudarMaterial('metal', this)">Superfície Metálica / Branca</button>
+            <button class="sim-btn" onclick="mudarMaterial('piscina', this)">Cobertura Transparente (Piscina)</button>
+        </div>
+
+        <div class="sim-card">
+            <h3 id="mat-titulo">Asfalto / Superfície Preta</h3>
+            <p id="mat-desc">Alta retenção do espectro visível, convertendo quase toda a radiação incidente em energia térmica.</p>
+            
+            <div class="sim-stats">
+                <div class="stat-box">
+                    <span>Absorção (Calor)</span>
+                    <strong id="mat-abs">90%</strong>
+                </div>
+                <div class="stat-box">
+                    <span>Reflexão</span>
+                    <strong id="mat-ref">10%</strong>
+                </div>
+                <div class="stat-box">
+                    <span>Transmissão</span>
+                    <strong id="mat-trans">0%</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <p><strong>HelioOptics</strong> — Projeto Integrador — 3º Trimestre • Estudo de Absorção, Reflexão e Transmissão Solar.</p>
+</footer>
+
+<script>
+const materiais = {
+    asfalto: {
+        titulo: "Asfalto / Superfície Preta",
+        desc: "Alta retenção do espectro visível, convertendo quase toda a radiação incidente em energia térmica.",
+        abs: "90%", ref: "10%", trans: "0%"
+    },
+    metal: {
+        titulo: "Superfície Metálica / Branca",
+        desc: "Alta capacidade de refletir ondas eletromagnéticas, mantendo a superfície com menor aquecimento.",
+        abs: "15%", ref: "85%", trans: "0%"
+    },
+    piscina: {
+        titulo: "Cobertura Transparente (Piscina)",
+        desc: "Permite a passagem da luz solar (transmissão) para aquecer a água e retém o calor acumulado no interior.",
+        abs: "10%", ref: "10%", trans: "80%"
+    }
+};
+
+function mudarMaterial(tipo, botao) {
+    document.querySelectorAll('.sim-btn').forEach(b => b.classList.remove('active'));
+    botao.classList.add('active');
+    
+    document.getElementById('mat-titulo').innerText = materiais[tipo].titulo;
+    document.getElementById('mat-desc').innerText = materiais[tipo].desc;
+    document.getElementById('mat-abs').innerText = materiais[tipo].abs;
+    document.getElementById('mat-ref').innerText = materiais[tipo].ref;
+    document.getElementById('mat-trans').innerText = materiais[tipo].trans;
+}
+</script>
 
 ---
 
