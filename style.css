@@ -1,4 +1,3 @@
-```css
 :root {
   --yellow-bright: #ffb703;
   --yellow-soft: #fef08a;
@@ -91,7 +90,6 @@ body {
   padding: 0 1.25rem;
 }
 
-/* Barra de Acessibilidade Fixa no Topo */
 .a11y-bar {
   background: var(--dark-ember);
   color: #fff;
@@ -132,7 +130,6 @@ body {
   color: var(--dark-ember);
 }
 
-/* Cabeçalho Estático (NÃO acompanha o scroll) */
 .site-header {
   position: relative;
   background: var(--grad-solar);
@@ -210,7 +207,6 @@ body {
   color: var(--yellow-bright);
 }
 
-/* Hero Section Vibrante */
 .hero {
   position: relative;
   padding: 5rem 0;
@@ -325,7 +321,6 @@ body.high-contrast .hero {
   border-color: var(--dark-ember);
 }
 
-/* Painel Solar Animado no Hero */
 .solar-dashboard {
   background: var(--dark-ember);
   border: 3px solid var(--yellow-bright);
@@ -387,7 +382,6 @@ body.high-contrast .hero {
 .stat-orange { background: #7c2d12; color: #fed7aa; border-left: 5px solid #fb923c; }
 .stat-yellow { background: #713f12; color: #fef08a; border-left: 5px solid #facc15; }
 
-/* Seções Alternadas Ricas em Cor (Sem Fundo Branco Apagado) */
 .section {
   padding: 5rem 0;
 }
@@ -451,7 +445,6 @@ body.high-contrast .hero {
   color: #ffedd5;
 }
 
-/* Cards de Tecnociência com Borda Colorida e Elevação */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
@@ -511,22 +504,23 @@ body.high-contrast .hero {
   color: var(--dark-ember);
 }
 
-/* Diagrama img.txt */
 .diagram-showcase {
   max-width: 920px;
   margin: 0 auto;
-background: var(--dark-ember);
-border: 3px solid var(--yellow-bright);
-border-radius: 22px;
-padding: 1.5rem;
-box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  background: var(--dark-ember);
+  border: 3px solid var(--yellow-bright);
+  border-radius: 22px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
 }
+
 .diagram-frame {
-border-radius: 14px;
-overflow: hidden;
-background: #2b1106;
-min-height: 280px;
-display: flex;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #2b1106;
+  min-height: 280px;
+  display: flex;
+Use o código com cuidado.
 align-items: center;
 justify-content: center;
 }
@@ -542,7 +536,6 @@ text-align: center;
 color: var(--yellow-soft);
 font-size: 0.95rem;
 }
-/* Simuladores */
 .simulators-grid {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -648,7 +641,6 @@ color: var(--text-muted);
 font-size: 1.3rem;
 color: var(--red-crimson);
 }
-/* Flashcards Interativos 3D */
 .flashcards-grid {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -717,7 +709,6 @@ justify-content: center;
 font-size: 0.96rem;
 font-weight: 600;
 }
-/* Questões Orientadoras & Tabela */
 .accordion-list {
 display: flex;
 flex-direction: column;
@@ -768,7 +759,6 @@ padding: 1rem;
 padding: 1rem;
 border-top: 1px solid var(--border-warm);
 }
-/* Robótica */
 .robotics-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -838,7 +828,6 @@ white-space: pre-wrap;
 font-size: 0.9rem;
 line-height: 1.55;
 }
-/* Libras */
 .libras-grid {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -874,7 +863,6 @@ justify-content: center;
 font-size: 1.4rem;
 font-weight: 800;
 }
-/* Rodapé */
 .site-footer {
 background: var(--dark-ember);
 color: #fed7aa;
@@ -912,7 +900,6 @@ padding: 1.25rem;
 font-size: 0.88rem;
 color: #fdba74;
 }
-/* Animação suave de entrada */
 .reveal {
 opacity: 0;
 transform: translateY(22px);
