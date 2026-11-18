@@ -403,65 +403,67 @@
     </section>
 
     <!-- ROBÓTICA -->
-    <section id="robotica" class="section section-crimson">
-      <div class="container">
-        <div class="section-header light-header reveal">
-          <span class="kicker-light">Robótica &amp; Automação</span>
-          <h2>Controle Inteligente com Sensores ESP32</h2>
-          <p>Teste a leitura dos sensores DS18B20 e LDR e acompanhe a resposta automática do sistema.</p>
+   <section id="robotica" class="section section-warm">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker">Robótica &amp; Automação</span>
+      <h2>Controle Inteligente com Sensores ESP32</h2>
+      <p>Teste a leitura dos sensores DS18B20 e LDR e acompanhe a resposta automática do sistema.</p>
+    </div>
+
+    <div class="robotics-grid">
+      <div class="sensors-stack">
+        <article class="sensor-box border-yellow reveal">
+          <h4>Sensor DS18B20 (Temperatura Impermeável)</h4>
+          <p>Compara T_coletor e T_piscina. Só aciona a bomba quando há ganho térmico real (ΔT ≥ 3°C).</p>
+        </article>
+
+        <article class="sensor-box border-orange reveal">
+          <h4>Sensor LDR (Luminosidade Solar)</h4>
+          <p>Detecta o anoitecer e aciona o motor da capa térmica para evitar a perda de radiação infravermelha.</p>
+        </article>
+
+        <article class="sensor-box border-red reveal">
+          <h4>Sensor de Fluxo YF-S201</h4>
+          <p>Monitora a circulação hidráulica alimentada pelo painel solar, evitando que a bomba trabalhe sem água.</p>
+        </article>
+      </div>
+
+      <div class="esp-console-card reveal">
+        <h3>Bancada Interativa ESP32</h3>
+
+        <div class="control-group">
+          <label for="esp-tcol">Temperatura Coletor (DS18B20): <strong id="val-esp-tcol">45 °C</strong></label>
+          <input type="range" id="esp-tcol" min="15" max="70" value="45">
         </div>
 
-        <div class="cards-grid">
-          <article class="feature-card reveal">
-            <h3>Sensor DS18B20 (Temperatura Impermeável)</h3>
-            <p>Compara T_coletor e T_piscina. Só aciona a bomba quando há ganho térmico real (ΔT ≥ 3°C).</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <h3>Sensor LDR (Luminosidade Solar)</h3>
-            <p>Detecta o anoitecer e aciona o motor da capa térmica para evitar a perda de radiação infravermelha.</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <h3>Sensor de Fluxo YF-S201</h3>
-            <p>Monitora a circulação hidráulica alimentada pelo painel solar, evitando que a bomba trabalhe sem água.</p>
-          </article>
+        <div class="control-group">
+          <label for="esp-tpool">Temperatura Piscina (DS18B20): <strong id="val-esp-tpool">28 °C</strong></label>
+          <input type="range" id="esp-tpool" min="15" max="40" value="28">
         </div>
 
-        <div class="esp32-bench sim-panel reveal">
-          <div class="sim-header-bar bar-orange">
-            <h3>Bancada Interativa ESP32</h3>
+        <div class="control-group">
+          <label for="esp-ldr">Luminosidade Solar (LDR): <strong id="val-esp-ldr">80%</strong></label>
+          <input type="range" id="esp-ldr" min="0" max="100" value="80">
+        </div>
+
+        <div class="terminal-window" aria-live="polite">
+          <div class="terminal-top">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot orange"></span>
+            <span>Monitor Serial ESP32 • 115200 baud</span>
           </div>
-          <div class="sim-body">
-            <div class="control-group">
-              <label for="esp-tcol">Temperatura Coletor (DS18B20): <strong id="val-esp-tcol">42 °C</strong></label>
-              <input type="range" id="esp-tcol" min="15" max="70" value="42">
-            </div>
-
-            <div class="control-group">
-              <label for="esp-tpool">Temperatura Piscina (DS18B20): <strong id="val-esp-tpool">28 °C</strong></label>
-              <input type="range" id="esp-tpool" min="15" max="40" value="28">
-            </div>
-
-            <div class="control-group">
-              <label for="esp-ldr">Luminosidade Solar (LDR): <strong id="val-esp-ldr">75%</strong></label>
-              <input type="range" id="esp-ldr" min="0" max="100" value="75">
-            </div>
-
-            <div class="metrics-row" aria-live="polite">
-              <div class="metric-card">
-                <span>Relé Bomba Hidráulica (ΔT ≥ 3°C)</span>
-                <strong id="out-esp-pump">LIGADA (ΔT = +14 °C)</strong>
-              </div>
-              <div class="metric-card">
-                <span>Motor Capa Térmica (LDR &lt; 25%)</span>
-                <strong id="out-esp-cover">RECOLHIDA (Dia)</strong>
-              </div>
-            </div>
-          </div>
+          <pre id="esp-serial-output">[ESP32] Lendo sensores DS18B20 e LDR...
+T_coletor: 45.0 °C | T_piscina: 28.0 °C | ΔT = +17.0 °C
+Luminosidade LDR: 80% (Período Diurno)
+>> RELÉ BOMBA: LIGADO (ΔT >= 3°C)
+>> MOTOR CAPA: RECOLHIDA</pre>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- LIBRAS -->
     <section id="libras" class="section section-amber">
