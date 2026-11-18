@@ -1,281 +1,347 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelioOptics | Engenharia Térmica e Radiação Solar</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HelioPool CEP | Física Solar, Robótica e Sustentabilidade</title>
+  
+  <!-- Google Fonts: Syne / Outfit (Display moderno) e Plus Jakarta Sans (Leitura limpa) -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnfonts.com" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Link de Salto para Navegação por Teclado -->
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
-    <header class="navbar">
-        <div class="container nav-content">
-            <div class="logo">
-                <span class="sun-icon"></span>
-                <span>Helio<strong>Optics</strong></span>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#contextualizacao">Fundamentos</a></li>
-                    <li><a href="#estudo-visual">Modelo Óptico</a></li>
-                    <li><a href="#questoes">Análise Técnica</a></li>
-                    <li><a href="#simulador">Simulador</a></li>
-                </ul>
-            </nav>
-            <a href="#questoes" class="btn-primary">Relatório Técnico</a>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-text">
-                <span class="badge">PROJETO INTEGRADOR • ÓPTICA & TERMODINÂMICA</span>
-                <h1>Absorção, Reflexão e Transmissão da Radiação Solar</h1>
-                <p>Uma abordagem técnico-científica sobre como a energia eletromagnética do Sol interage, aquece e atravessa diferentes superfícies e materiais.</p>
-                <div class="hero-actions">
-                    <a href="#contextualizacao" class="btn-primary">Ler Contextualização</a>
-                    <a href="#simulador" class="btn-outline">Testar no Simulador</a>
-                </div>
-            </div>
-            
-            <div class="hero-visual">
-                <div class="solar-diagram">
-                    <div class="sun-orb"></div>
-                    <div class="ray ray-1"></div>
-                    <div class="ray ray-2"></div>
-                    <div class="ray ray-3"></div>
-                    <div class="surface-bar">
-                        <span>Superfície de Incidência Óptica</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contextualizacao" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">01. CONTEXTUALIZAÇÃO</span>
-                <h2>A Física da Energia Solar nos Materiais</h2>
-                <p>Antes de responder às questões práticas, é fundamental compreender o comportamento das ondas eletromagnéticas ao atingirem qualquer barreira física.</p>
-            </div>
-
-            <div class="context-grid">
-                <div class="context-card card-yellow">
-                    <div class="card-number">01</div>
-                    <h3>O Espectro Solar</h3>
-                    <p>A radiação emitida pelo Sol viaja pelo espaço em forma de ondas eletromagnéticas, compostas principalmente por luz ultravioleta (UV), luz visível e radiação infravermelha (calor).</p>
-                </div>
-                <div class="context-card card-orange">
-                    <div class="card-number">02</div>
-                    <h3>Balanço Energético</h3>
-                    <p>Quando um feixe de luz incide sobre um corpo, a energia total não desaparece: ela se divide em três fenômenos simultâneos — absorção, reflexão e transmissão.</p>
-                </div>
-                <div class="context-card card-red">
-                    <div class="card-number">03</div>
-                    <h3>Propriedades Ópticas</h3>
-                    <p>A composição química, a transparência e a cor da superfície determinam qual desses três fenômenos será dominante, definindo o aquecimento ou o isolamento térmico do material.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="estudo-visual" class="section bg-warm">
-        <div class="container">
-            <div class="media-layout">
-                <div class="media-info">
-                    <span class="section-tag">02. DEMONSTRAÇÃO VISUAL</span>
-                    <h2>Esquema de Incidência Óptica</h2>
-                    <p>Este painel é dedicado à ilustração técnica do projeto, demonstrando como a radiação solar é absorvida, refletida ou transmitida conforme a superfície escolhida.</p>
-                    <ul class="tech-list">
-                        <li><strong>Arquivo configurado:</strong> <code>img/banner-solar.jpg</code></li>
-                        <li><strong>Instrução de troca:</strong> Basta subir a foto com esse exato nome na pasta <code>img</code> para substituir o quadrado branco ao lado automaticamente.</li>
-                    </ul>
-                </div>
-
-                <!-- QUADRADO BRANCO RESERVADO PARA A IMAGEM -->
-                <div class="image-frame" id="imageFrame">
-                    <img 
-                        src="img/banner-solar.jpg" 
-                        alt="Esquema de Absorção, Reflexão e Transmissão Solar" 
-                        id="projectImage"
-                    >
-                    <div class="placeholder-box">
-                        <div class="placeholder-icon">+</div>
-                        <span class="placeholder-title">A SER COLOCADA</span>
-                        <span class="placeholder-sub">Espaço reservado para <strong>img/banner-solar.jpg</strong></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="questoes" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">03. QUESTÕES ORIENTADORAS</span>
-                <h2>Respostas Fundamentadas</h2>
-                <p>Análise detalhada dos fenômenos ópticos e térmicos aplicados ao cotidiano e à engenharia.</p>
-            </div>
-
-            <div class="qa-container">
-                <article class="qa-card qa-yellow">
-                    <div class="qa-header">
-                        <span class="qa-badge">Questão 01</span>
-                        <h3>Por que superfícies escuras tendem a absorver mais luz visível?</h3>
-                    </div>
-                    <div class="qa-body">
-                        <p>A cor que enxergamos em um objeto é resultado dos comprimentos de onda da luz visível que ele <strong>reflete</strong> de volta para os nossos olhos. Superfícies claras (como o branco) refletem quase todas as frequências do espectro visível.</p>
-                        <p>Em contrapartida, os pigmentos e a estrutura molecular das <strong>superfícies escuras</strong> capturam a grande maioria dos fótons da luz visível em vez de refleti-los. Ao absorver essa energia eletromagnética, os átomos do material passam a vibrar com maior intensidade, convertendo a luz absorvida diretamente em <strong>energia térmica (calor)</strong>.</p>
-                    </div>
-                </article>
-
-                <article class="qa-card qa-orange">
-                    <div class="qa-header">
-                        <span class="qa-badge">Questão 02</span>
-                        <h3>Qual é a diferença entre absorver e refletir radiação?</h3>
-                    </div>
-                    <div class="qa-body">
-                        <p>A diferença fundamental está no destino da energia transportada pela onda eletromagnética após o contato com a matéria:</p>
-                        <div class="comparison-box">
-                            <div class="comp-item">
-                                <h4>Absorção de Radiação</h4>
-                                <p>A energia da onda é retida pelo material e transformada em outra forma de energia — geralmente agitação molecular (calor). O material aquece e a onda deixa de se propagar.</p>
-                            </div>
-                            <div class="comp-item">
-                                <h4>Reflexão de Radiação</h4>
-                                <p>A onda atinge a superfície e retorna ao meio de origem sem transferir sua energia para o material. O ângulo de saída é igual ao de entrada, mantendo a temperatura da superfície estável.</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="qa-card qa-red">
-                    <div class="qa-header">
-                        <span class="qa-badge">Questão 03</span>
-                        <h3>Uma cobertura transparente pode ajudar a aquecer a piscina?</h3>
-                    </div>
-                    <div class="qa-body">
-                        <p><strong>Sim, de forma altamente eficiente.</strong> Esse fenômeno ocorre devido à <strong>transmissão seletiva</strong> (o mesmo princípio físico do efeito estufa):</p>
-                        <p>O material transparente (como lonas térmicas bolha ou policarbonato) permite a <strong>transmissão</strong> da radiação solar de ondas curtas (luz visível), que atravessa a cobertura e aquece a água e o fundo da piscina. Quando a água aquecida tenta devolver esse calor para o ambiente na forma de radiação infravermelha (ondas longas) e evaporação, a cobertura bloqueia essa saída, retendo o calor acumulado dentro da piscina.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section id="simulador" class="section bg-dark">
-        <div class="container">
-            <div class="section-header light">
-              <section id="simulador" class="section bg-warm">
-    <div class="container">
-        <div class="section-header">
-           <section id="simulador" class="section tech-lab-section">
-    <div class="container">
-        <div class="section-header">
-            <span class="tech-badge">04. LABORATÓRIO INTERATIVO • HELIO-OS</span>
-            <h2>Simulador de Comportamento Óptico</h2>
-            <p>Selecione uma superfície abaixo para analisar em tempo real o balanço de energia solar.</p>
-        </div>
-
-        <div class="sim-controls">
-            <button class="sim-btn active" onclick="mudarMaterial('asfalto', this)">
-                <span class="dot"></span> Asfalto / Superfície Preta
-            </button>
-            <button class="sim-btn" onclick="mudarMaterial('metal', this)">
-                <span class="dot"></span> Superfície Metálica / Branca
-            </button>
-            <button class="sim-btn" onclick="mudarMaterial('piscina', this)">
-                <span class="dot"></span> Cobertura Transparente (Piscina)
-            </button>
-        </div>
-
-        <div class="sim-dashboard">
-            <div class="dashboard-top">
-                <span class="status-live">● ANÁLISE ESPECTRAL ATIVA</span>
-                <span class="sensor-code">SENSOR: IR-UV-VIS // 1000 W/m²</span>
-            </div>
-
-            <div class="dashboard-content">
-                <h3 id="mat-titulo">Asfalto / Superfície Preta</h3>
-                <p id="mat-desc">Alta retenção do espectro visível, convertendo quase toda a radiação incidente em energia térmica.</p>
-                
-                <div class="sim-stats">
-                    <div class="stat-box">
-                        <div class="stat-header">
-                            <span>🔥 Absorção (Calor)</span>
-                            <strong id="mat-abs">90%</strong>
-                        </div>
-                        <div class="progress-track">
-                            <div id="bar-abs" class="progress-fill fill-red" style="width: 90%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="stat-box">
-                        <div class="stat-header">
-                            <span>✨ Reflexão</span>
-                            <strong id="mat-ref">10%</strong>
-                        </div>
-                        <div class="progress-track">
-                            <div id="bar-ref" class="progress-fill fill-yellow" style="width: 10%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="stat-box">
-                        <div class="stat-header">
-                            <span>💧 Transmissão</span>
-                            <strong id="mat-trans">0%</strong>
-                        </div>
-                        <div class="progress-track">
-                            <div id="bar-trans" class="progress-fill fill-cyan" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- Barra Superior de Acessibilidade -->
+  <div class="a11y-bar" role="region" aria-label="Ferramentas de Acessibilidade">
+    <div class="container a11y-controls">
+      <span class="a11y-label">Acessibilidade:</span>
+      <button type="button" id="btn-contrast" class="a11y-btn" aria-pressed="false">
+        Alto Contraste
+      </button>
+      <button type="button" id="btn-dyslexia" class="a11y-btn" aria-pressed="false">
+        Fonte Dislexia
+      </button>
+      <button type="button" id="btn-font-inc" class="a11y-btn" aria-label="Aumentar tamanho da fonte">
+        A+
+      </button>
+      <button type="button" id="btn-font-dec" class="a11y-btn" aria-label="Diminuir tamanho da fonte">
+        A-
+      </button>
+      <button type="button" id="btn-reset-a11y" class="a11y-btn">
+        Restaurar
+      </button>
     </div>
-</section>
+  </div>
 
-<footer class="site-footer-tech">
-    <p><strong>HelioOptics</strong> — Projeto Integrador • 3º Trimestre • Engenharia Térmica & Radiação Solar</p>
-</footer>
+  <!-- Cabeçalho Principal -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="logo" aria-label="HelioPool CEP - Página Inicial">
+        <span class="logo-sun" aria-hidden="true">☀</span>
+        <span>Helio<strong>Pool</strong> <small>CEP</small></span>
+      </a>
 
-<script>
-const materiais = {
-    asfalto: {
-        titulo: "Asfalto / Superfície Preta",
-        desc: "Alta retenção do espectro visível, convertendo quase toda a radiação incidente em energia térmica.",
-        abs: 90, ref: 10, trans: 0
-    },
-    metal: {
-        titulo: "Superfície Metálica / Branca",
-        desc: "Alta capacidade de refletir ondas eletromagnéticas, mantendo a superfície com menor aquecimento.",
-        abs: 15, ref: 85, trans: 0
-    },
-    piscina: {
-        titulo: "Cobertura Transparente (Piscina)",
-        desc: "Permite a passagem da luz solar (transmissão) para aquecer a água e retém o calor acumulado no interior.",
-        abs: 10, ref: 10, trans: 80
-    }
-};
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu de navegação">
+        ☰
+      </button>
 
-function mudarMaterial(tipo, botao) {
-    document.querySelectorAll('.sim-btn').forEach(b => b.classList.remove('active'));
-    botao.classList.add('active');
-    
-    const dados = materiais[tipo];
-    document.getElementById('mat-titulo').innerText = dados.titulo;
-    document.getElementById('mat-desc').innerText = dados.desc;
-    
-    document.getElementById('mat-abs').innerText = dados.abs + "%";
-    document.getElementById('mat-ref').innerText = dados.ref + "%";
-    document.getElementById('mat-trans').innerText = dados.trans + "%";
+      <nav id="main-nav" class="main-nav" aria-label="Navegação Principal">
+        <ul>
+          <li><a href="#tecnociencia">Tecnociência</a></li>
+          <li><a href="#esquema-visual">Esquema do Projeto</a></li>
+          <li><a href="#simuladores">Simuladores</a></li>
+          <li><a href="#questoes">Questões-Chave</a></li>
+          <li><a href="#robotica">Robótica</a></li>
+          <li><a href="#libras">Libras</a></li>
+          <li><a href="#mapa-site">Mapa do Site</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    document.getElementById('bar-abs').style.width = dados.abs + "%";
-    document.getElementById('bar-ref').style.width = dados.ref + "%";
-    document.getElementById('bar-trans').style.width = dados.trans + "%";
-}
-</script>
+  <main id="conteudo-principal">
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge">Projeto Integrador • 3º Trimestre • CEP</span>
+          <h1>Energia Solar, Física Moderna e Automação na Piscina Térmica</h1>
+          <p>
+            Uma plataforma educacional interativa que conecta <strong>Ondas Eletromagnéticas</strong>, <strong>Radiação do Corpo Negro</strong>, <strong>Efeito Fotoelétrico</strong> e <strong>Sensores Robóticos</strong> para aquecer piscinas com eficiência energética e inclusão digital.
+          </p>
+          <div class="hero-actions">
+            <a href="#simuladores" class="btn btn-primary">Abrir Simuladores</a>
+            <a href="#esquema-visual" class="btn btn-secondary">Ver Diagrama do Sistema</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="solar-orbit">
+            <div class="sun-core" aria-hidden="true"></div>
+            <div class="telemetry-live" aria-live="polite">
+              <div class="telemetry-row">
+                <span>Coletor Solar (Corpo Negro)</span>
+                <strong class="temp-hot">58.4 °C</strong>
+              </div>
+              <div class="telemetry-row">
+                <span>Água da Piscina</span>
+                <strong class="temp-warm">29.8 °C</strong>
+              </div>
+              <div class="telemetry-row">
+                <span>Painel Fotovoltaico (Bomba)</span>
+                <strong class="temp-power">310 W • ATIVO</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 1: Tecnociência -->
+    <section id="tecnociencia" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Física & Tecnociência</span>
+          <h2>Fundamentos Eletromagnéticos do Projeto</h2>
+          <p>Como a energia irradiada pelo Sol é capturada, convertida em calor ou eletricidade e retida no sistema da piscina.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-badge">01 • Espectro Solar</div>
+            <h3>Ondas Eletromagnéticas</h3>
+            <p>
+              A radiação solar viaja pelo espaço transportando energia através de campos elétricos e magnéticos oscilantes. No projeto, destacam-se a <strong>luz visível</strong> (alta penetração e energia) e o <strong>infravermelho</strong> (radiação térmica).
+            </p>
+            <div class="card-highlight">
+              <strong>Aplicação na Piscina:</strong> Os raios visíveis atravessam a água e aquecem o fundo da piscina, enquanto o infravermelho aquece diretamente a superfície e os tubos coletores.
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-badge">02 • Absorção & Emissão</div>
+            <h3>Radiação do Corpo Negro</h3>
+            <p>
+              Um corpo negro absorve quase 100% da radiação incidente e reemite energia térmica proporcional à quarta potência de sua temperatura absoluta (Lei de Stefan-Boltzmann).
+            </p>
+            <div class="card-highlight">
+              <strong>Aplicação na Piscina:</strong> Coletores pretos foscos maximizam a absorção diurna. À noite, a água perde calor emitindo infravermelho, o que exige o uso da <strong>capa térmica</strong>.
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-badge">03 • Física Quântica</div>
+            <h3>Efeito Fotoelétrico</h3>
+            <p>
+              Quando fótons com frequência igual ou superior à frequência de corte (<em>f₀</em>) atingem um material semicondutor como o silício, arrancam elétrons e geram corrente elétrica contínua.
+            </p>
+            <div class="card-highlight">
+              <strong>Aplicação na Piscina:</strong> Painéis fotovoltaicos alimentam a <strong>bomba de circulação</strong> e os sensores sem consumir energia da rede elétrica convencional.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 2: Integração da Imagem "img.txt" -->
+    <section id="esquema-visual" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Arquitetura Integrada</span>
+          <h2>Diagrama Visual do Sistema Sol + Água</h2>
+          <p>Representação gráfica integrando o coletor térmico, o painel fotovoltaico, os sensores robóticos e a capa térmica.</p>
+        </div>
+
+        <figure class="project-figure">
+          <div class="image-frame">
+            <img id="projeto-img" src="img.txt" alt="Diagrama esquemático do projeto da piscina solar mostrando a incidência de ondas eletromagnéticas no coletor térmico escuro, painel fotovoltaico alimentando a bomba e sensores de temperatura conectados ao microcontrolador." loading="lazy">
+          </div>
+          <figcaption>
+            <strong>Figura 1:</strong> Integração entre Tecnociência (radiação solar e efeito fotoelétrico), Robótica (sensores térmicos) e Sustentabilidade no aquecimento da piscina.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Seção 3: Simuladores Interativos -->
+    <section id="simuladores" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Laboratório Interativo</span>
+          <h2>Simuladores Físicos da Piscina Solar</h2>
+          <p>Manipule os parâmetros físicos e acompanhe as animações e cálculos térmicos e elétricos em tempo real.</p>
+        </div>
+
+        <div class="simulators-grid">
+          <!-- Simulador 1: Corpo Negro e Capa Térmica -->
+          <div class="sim-box">
+            <h3>Simulador 1: Corpo Negro & Capa Térmica</h3>
+            <p class="sim-desc">Analise como a absortividade da superfície do coletor e o uso noturno da capa térmica determinam o saldo de temperatura da piscina.</p>
+
+            <div class="control-group">
+              <label for="sim-surface">Superfície do Coletor Solar:</label>
+              <select id="sim-surface">
+                <option value="0.95">Preto Fosco (Comportamento Corpo Negro • 95% absorção)</option>
+                <option value="0.65">Azul Escuro (Absorção Moderada • 65% absorção)</option>
+                <option value="0.20">Branco / Metálico Polido (Alta Reflexão • 20% absorção)</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="sim-irradiance">Irradiância Solar Incidente: <strong id="val-irradiance">850 W/m²</strong></label>
+              <input type="range" id="sim-irradiance" min="200" max="1000" step="50" value="850">
+            </div>
+
+            <div class="control-group checkbox-group">
+              <input type="checkbox" id="sim-cover" checked>
+              <label for="sim-cover">Ativar Capa Térmica Noturna (Retém emissão Infravermelha)</label>
+            </div>
+
+            <!-- Animação Visual do Fluxo Térmico -->
+Use o código com cuidado.
+〰 〰 〰 Ondas Eletromagnéticas (Visível + IV)
+
+
+Coletor Solar: 57.0 °C
+
+
+Capa Térmica Ativa (Bloqueando perda IV)
+Água da Piscina: 29.8 °C
+
+Ganho Diurno
++5.8 °C
+
+
+Perda Noturna (IV)
+-0.9 °C
+
+
+Simulador 2: Efeito Fotoelétrico & Bomba Solar
+Varie a frequência dos fótons (cor da luz) e a intensidade luminosa para gerar corrente elétrica na placa fotovoltaica.
+Frequência dos Fótons: Luz Azul (6.4 × 10¹⁴ Hz)
+Frequência de corte do Silício (f₀): 4.5 × 10¹⁴ Hz
+Intensidade Luminosa (Fluxo de Fótons): 80%
+Feixe de Fótons Incidentes
+Célula Fotovoltaica de Silício
+Elétrons Ejetados: Corrente Contínua Ativa
+Potência Elétrica
+304 W
+
+
+Bomba de Calor/Água
+OPERANDO
+
+
+
+
+Investigação Científica
+Questões Orientadoras do Projeto
+Explicações físicas detalhadas sobre absorção, reflexão e efeito estufa aplicados à piscina.
+1. Por que superfícies escuras tendem a absorver mais luz visível?
+
+
+A cor percebida em um objeto resulta das frequências da luz visível que ele reflete. Materiais escuros (como os tubos pretos foscos do coletor solar) possuem estrutura molecular capaz de absorver quase todos os comprimentos de onda do espectro visível, refletindo uma fração mínima.
+
+
+A energia dos fótons absorvidos é convertida em agitação térmica das moléculas (calor), fazendo com que o material se aproxime do comportamento ideal de um corpo negro.
+
+
+2. Qual é a diferença entre absorver e refletir radiação?
+
+
+Absorver radiação: ocorre quando a energia da onda eletromagnética é transferida para os átomos ou elétrons do material, elevando sua temperatura (efeito térmico) ou liberando cargas elétricas (efeito fotoelétrico).
+
+
+Refletir radiação: ocorre quando a onda bate na superfície e retorna ao meio de origem sem depositar sua energia térmica no objeto. Superfícies brancas ou espelhadas refletem grande parte da radiação e permanecem mais frias.
+
+
+3. Uma cobertura transparente pode ajudar a aquecer a piscina?
+
+
+Sim, por meio do Efeito Estufa! Uma cobertura transparente (como capas térmicas translúcidas com bolhas) permite que a radiação solar de ondas curtas (luz visível) atravesse o material e aqueça diretamente a água e o fundo da piscina.
+
+
+Em seguida, a água aquecida emite radiação térmica de ondas longas (infravermelho), que é bloqueada pela cobertura. Além disso, a capa reduz drasticamente a perda de calor por evaporação e contato com o vento frio.
+
+
+
+Comparativo Visual de Interação com a Radiação
+
+Elemento do Sistema	Luz Visível (Ondas Curtas)	Infravermelho (Ondas Longas)	Resultado no Projeto
+Coletor Preto Fosco
+	Absorção máxima (~95%)	Alta absorção e emissão térmica	Aquece rapidamente a água circulante
+Capa Térmica Translúcida
+	Alta transparência (deixa entrar)	Opaca ao IV (retém calor interno)	Aquecimento por efeito estufa e proteção noturna
+Painel Fotovoltaico
+	Converte fótons acima de f₀ em corrente	Não gera corrente (apenas calor)	Alimenta bomba hidráulica e sensores
+
+Robótica & Automação
+Controle Inteligente com Sensores
+Simule a atuação do microcontrolador (ESP32 / Arduino) gerenciando a bomba solar e a capa térmica motorizada.
+Sensor Térmico DS18B20 (Sonda Impermeável)
+Monitora a diferença de temperatura entre o coletor solar e a piscina. Aciona a bomba apenas quando T_coletor > T_piscina + 3°C, evitando perda de calor.
+
+
+Sensor de Luminosidade LDR
+Identifica o pôr do sol ou queda brusca de irradiância para estender automaticamente a capa térmica motorizada e bloquear a perda por radiação infravermelha.
+
+
+Sensor de Fluxo YF-S201
+Verifica a vazão da água na tubulação alimentada pelo painel fotovoltaico, protegendo a bomba contra funcionamento a seco.
+
+Bancada de Testes — ESP32 Automação
+Temperatura no Coletor: 46 °C
+Temperatura na Piscina: 28 °C
+Irradiância / Sensor LDR: 85% (Dia)
+Monitor Serial • ESP32_HelioPool.ino
+
+
+
+
+Inclusão Digital & Impacto Social
+Acessibilidade em Libras e Desenho Universal
+Compromisso com a democratização do conhecimento científico: tradução automática via VLibras, navegação por teclado e estrutura para vídeos em Libras.
+Janela de Libras • CC
+▶
+Vídeo 1: Corpo Negro e Radiação Térmica
+Espaço estruturado para o vídeo interpretado em Libras pela equipe do CEP explicando o funcionamento do coletor solar e da capa térmica.
+Janela de Libras • CC
+▶
+Vídeo 2: Efeito Fotoelétrico e Robótica
+Espaço estruturado para o vídeo em Libras demonstrando a geração fotovoltaica e a leitura dos sensores na maquete automatizada.
+
+
+
+HelioPool CEP
+
+Projeto Integrador do 3º Trimestre do Colégio Estadual do Paraná (CEP). Integração entre Programação Web Acessível, Física Moderna e Robótica Sustentável.
+
+Mapa do Site
+
+1. Início e Telemetria
+2. Tecnociência (Ondas, Corpo Negro, Fotoelétrico)
+3. Diagrama Visual do Projeto (img.txt)
+4. Simuladores Interativos
+5. Questões Orientadoras e Tabela
+6. Robótica e Sensores ESP32
+7. Inclusão e Vídeos em Libras
+
+Conformidade WCAG & Inclusão
+
+Plugin oficial VLibras ativo no canto direito
+Modo Alto Contraste e Fonte OpenDyslexic
+Ajuste dinâmico de escala tipográfica (A+ / A-)
+Navegação 100% operável por teclado
+
+
+
+
+Projeto Integrador 3º Trimestre • Colégio Estadual do Paraná (CEP) • Sustentabilidade e Inclusão Digital
+
+new window.VLibras.Widget('vlibras.gov.br');
