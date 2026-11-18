@@ -1,9 +1,4 @@
-```javascript
 document.addEventListener('DOMContentLoaded', () => {
-  /* ========================================================================
-     1. CARREGADOR INTELIGENTE DA IMAGEM "img.txt"
-     Suporta tanto arquivo binário renomeado quanto texto Base64 / Data URL
-     ======================================================================== */
   const projetoImg = document.getElementById('projeto-img');
   if (projetoImg) {
     projetoImg.addEventListener('error', () => {
@@ -18,14 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         })
         .catch(() => {
-          projetoImg.alt = 'Arquivo img.txt não encontrado na pasta raiz do projeto.';
+          projetoImg.alt = 'Arquivo img.txt não encontrado na pasta raiz.';
         });
     }, { once: true });
   }
 
-  /* ========================================================================
-     2. CONTROLES DE ACESSIBILIDADE (CONTRASTE, DISLEXIA E ESCALA DE FONTE)
-     ======================================================================== */
   const body = document.body;
   const htmlEl = document.documentElement;
   const btnContrast = document.getElementById('btn-contrast');
@@ -68,9 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     htmlEl.style.fontSize = '16px';
   });
 
-  /* ========================================================================
-     3. MENU MOBILE RESPONSIVO
-     ======================================================================== */
   const menuToggle = document.querySelector('.menu-toggle');
   const mainNav = document.getElementById('main-nav');
 
@@ -87,13 +76,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ========================================================================
-     4. SIMULADOR 1: CORPO NEGRO & CAPA TÉRMICA
-     ======================================================================== */
+  document.querySelectorAll('.flashcard').forEach(card => {
+    card.addEventListener('click', () => {
+      const isFlipped = card.classList.toggle('flipped');
+      card.setAttribute('aria-pressed', isFlipped);
+    });
+  });
+
+  const revealElements = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(el => observer.observe(el));
+
   const simSurface = document.getElementById('sim-surface');
   const simIrradiance = document.getElementById('sim-irradiance');
   const simCover = document.getElementById('sim-cover');
-
   const valIrradiance = document.getElementById('val-irradiance');
   const stageCollector = document.getElementById('stage-collector');
   const stageCover = document.getElementById('stage-cover');
@@ -110,14 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
     valIrradiance.textContent = `${irradiance} W/m²`;
 
     if (absorptivity >= 0.9) {
-      stageCollector.style.backgroundColor = '#1e1510';
+      stageCollector.style.backgroundColor = '#1c0a04';
       stageCollector.style.color = '#ffb703';
     } else if (absorptivity >= 0.6) {
       stageCollector.style.backgroundColor = '#1e3a8a';
       stageCollector.style.color = '#ffffff';
     } else {
       stageCollector.style.backgroundColor = '#f4f4f5';
-      stageCollector.style.color = '#1e1510';
+      stageCollector.style.color = '#1c0a04';
     }
 
     const baseTemp = 24.0;
@@ -138,9 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
   simCover.addEventListener('change', updateThermalSimulator);
   updateThermalSimulator();
 
-  /* ========================================================================
-     5. SIMULADOR 2: EFEITO FOTOELÉTRICO
-     ======================================================================== */
   const simFreq = document.getElementById('sim-freq');
   const simIntensity = document.getElementById('sim-intensity');
   const valFreq = document.getElementById('val-freq');
@@ -160,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let spectrumName = '';
     let beamColor = '#ffb703';
-    let textColor = '#1e1510';
+    let textColor = '#1c0a04';
 
     if (freq < 4.5) {
       spectrumName = 'Infravermelho / Vermelho Profundo';
@@ -188,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
       electronFlow.style.backgroundColor = '#57534e';
       outPower.textContent = '0 W';
       outPumpStatus.textContent = 'DESLIGADA';
-      outPumpStatus.style.color = '#d62828';
+      outPumpStatus.style.color = '#dc2626';
     } else {
       const generatedWatts = Math.round((intensity / 100) * 380);
       electronFlow.textContent = `Elétrons Ejetados: Corrente Ativa (${intensity}%)`;
@@ -209,13 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
   simIntensity.addEventListener('input', updatePhotoelectricSimulator);
   updatePhotoelectricSimulator();
 
-  /* ========================================================================
-     6. SIMULADOR DE ROBÓTICA (MONITOR SERIAL ESP32)
-     ======================================================================== */
   const robTcol = document.getElementById('rob-tcol');
   const robTpool = document.getElementById('rob-tpool');
   const robLux = document.getElementById('rob-lux');
-
   const valRobTcol = document.getElementById('val-rob-tcol');
   const valRobTpool = document.getElementById('val-rob-tpool');
   const valRobLux = document.getElementById('val-rob-lux');
@@ -243,14 +240,11 @@ document.addEventListener('DOMContentLoaded', () => {
 `> Lendo sensores DS18B20 e LDR...
 > T_coletor: ${tCol}°C | T_piscina: ${tPool}°C | ΔT: ${deltaT >= 0 ? '+' : ''}${deltaT}°C
 > [ATUADOR 1] Bomba Solar: ${pumpState}
-> [ATUADOR 2] Capa Térmica Motorizada: ${coverState}`;
+> [ATUADOR 2] Motor Capa Térmica: ${coverState}`;
   }
 
   robTcol.addEventListener('input', updateRoboticsMonitor);
   robTpool.addEventListener('input', updateRoboticsMonitor);
-robLux.addEventListener('input', updateRoboticsMonitor);
-updateRoboticsMonitor();
+  robLux.addEventListener('input', updateRoboticsMonitor);
+  updateRoboticsMonitor();
 });
-
----
-
