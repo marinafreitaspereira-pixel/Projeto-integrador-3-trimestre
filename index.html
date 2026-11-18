@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HelioPool CEP | Física Solar, Robótica e Sustentabilidade</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnfonts.com" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/opendyslexic" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -93,7 +93,7 @@
     <section id="tecnociencia" class="section section-amber">
       <div class="container">
         <div class="section-header reveal">
-          <span class="kicker">Física & Tecnociência</span>
+          <span class="kicker">Física &amp; Tecnociência</span>
           <h2>Os 3 Pilares Eletromagnéticos do Sistema</h2>
           <p>A ciência por trás da captação solar, retenção térmica e geração de eletricidade limpa.</p>
         </div>
@@ -172,9 +172,10 @@
         </div>
 
         <div class="simulators-grid">
+          <!-- SIMULADOR 1 -->
           <div class="sim-panel reveal">
             <div class="sim-header-bar bar-orange">
-              <h3>Simulador 1: Corpo Negro & Capa Térmica</h3>
+              <h3>Simulador 1: Corpo Negro &amp; Capa Térmica</h3>
             </div>
             <div class="sim-body">
               <div class="control-group">
@@ -202,7 +203,7 @@
                   Coletor Térmico: <strong id="out-collector-temp">57.3 °C</strong>
                 </div>
                 <div class="stage-layer layer-pool">
-                                  <span class="cover-tag" id="stage-cover">Capa Térmica Ativa (Retendo IV)</span>
+                  <span class="cover-tag" id="stage-cover">Capa Térmica Ativa (Retendo IV)</span>
                   <div>Piscina: <strong id="out-pool-temp">29.8 °C</strong></div>
                 </div>
               </div>
@@ -220,123 +221,266 @@
             </div>
           </div>
 
+          <!-- SIMULADOR 2 (RECONSTRUÍDO) -->
           <div class="sim-panel reveal">
             <div class="sim-header-bar bar-red">
-              <h3>Simulador 2: Efeito Fotoelétrico & Bomba</h3>
+              <h3>Simulador 2: Efeito Fotoelétrico &amp; Bomba</h3>
+            </div>
+            <div class="sim-body">
+              <div class="control-group">
+                <label for="sim-freq">Frequência dos Fótons:</label>
+                <select id="sim-freq">
+                  <option value="4.3">Luz Vermelha (4.3 × 10¹⁴ Hz)</option>
+                  <option value="5.5">Luz Verde (5.5 × 10¹⁴ Hz)</option>
+                  <option value="6.4" selected>Luz Azul (6.4 × 10¹⁴ Hz)</option>
+                  <option value="7.5">Luz Violeta (7.5 × 10¹⁴ Hz)</option>
+                </select>
+              </div>
+
+              <div class="cutoff-badge">
+                Frequência de corte do Silício (f₀): <strong>4.5 × 10¹⁴ Hz</strong>
+              </div>
+
+              <div class="control-group">
+                <label for="sim-intensity">Intensidade Luminosa: <strong id="val-intensity">80%</strong></label>
+                <input type="range" id="sim-intensity" min="0" max="100" step="10" value="80">
+              </div>
+
+              <div class="visual-stage" aria-live="polite">
+                <div class="stage-layer layer-photons" id="stage-photons">Feixe de Fótons Incidentes</div>
+                <div class="stage-layer layer-pv">Placa Fotovoltaica (Silício)</div>
+                <div class="stage-layer layer-electrons">
+                  Elétrons Ejetados: <strong id="out-electrons">Corrente Ativa</strong>
+                </div>
+              </div>
+
+              <div class="metrics-row">
+                <div class="metric-card">
+                  <span>Potência Gerada</span>
+                  <strong id="out-power">304 W</strong>
+                </div>
+                <div class="metric-card">
+                  <span>Status da Bomba</span>
+                  <strong id="out-pump">OPERANDO</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLASHCARDS -->
+    <section id="flashcards" class="section section-amber">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="kicker">Revisão Ativa</span>
+          <h2>Flashcards Interativos de Física &amp; Robótica</h2>
+          <p>Clique ou pressione Enter sobre qualquer cartão para virar e conferir a resposta científica.</p>
+        </div>
+
+        <div class="flashcards-grid">
+          <article class="flashcard reveal" tabindex="0" role="button" aria-pressed="false">
+            <div class="flashcard-inner">
+              <div class="flashcard-front">
+                <span class="fc-tag">Corpo Negro</span>
+                <h3>Por que os coletores solares são pintados de preto fosco?</h3>
+                <span class="fc-hint">Clique para virar ↻</span>
+              </div>
+              <div class="flashcard-back">
+                <p>Porque superfícies escuras e foscas absorvem até 95% da luz visível e infravermelha, convertendo essa radiação em calor com máxima eficiência.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flashcard reveal" tabindex="0" role="button" aria-pressed="false">
+            <div class="flashcard-inner">
+              <div class="flashcard-front">
+                <span class="fc-tag">Radiação IV</span>
+                <h3>Como a piscina perde calor durante a madrugada?</h3>
+                <span class="fc-hint">Clique para virar ↻</span>
+              </div>
+              <div class="flashcard-back">
+                <p>Pela emissão de radiação infravermelha térmica e pela evaporação da água. A capa térmica bloqueia ambos os processos.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flashcard reveal" tabindex="0" role="button" aria-pressed="false">
+            <div class="flashcard-inner">
+              <div class="flashcard-front">
+                <span class="fc-tag">Efeito Fotoelétrico</span>
+                <h3>O que acontece se a luz tiver frequência menor que f₀?</h3>
+                <span class="fc-hint">Clique para virar ↻</span>
+              </div>
+              <div class="flashcard-back">
+                <p>Nenhum elétron é ejetado da placa fotovoltaica, independentemente da intensidade da luz, e a bomba permanece desligada.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flashcard reveal" tabindex="0" role="button" aria-pressed="false">
+            <div class="flashcard-inner">
+              <div class="flashcard-front">
+                <span class="fc-tag">Automação CEP</span>
+                <h3>Qual a regra lógica do sensor DS18B20 para ligar a bomba?</h3>
+                <span class="fc-hint">Clique para virar ↻</span>
+              </div>
+              <div class="flashcard-back">
+                <p>A bomba só liga quando a temperatura no coletor solar está pelo menos 3 °C acima da temperatura da água da piscina.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUESTÕES -->
+    <section id="questoes" class="section section-warm">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="kicker">Investigação Científica</span>
+          <h2>Questões Orientadoras &amp; Comparativo</h2>
+          <p>Respostas completas fundamentadas na física das radiações.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal" open>
+            <summary>1. Por que superfícies escuras tendem a absorver mais luz visível?</summary>
+            <p>
+              A cor de um objeto depende das frequências da luz visível que ele reflete. Materiais escuros absorvem quase todos os comprimentos de onda do espectro visível, transformando a energia dos fótons em vibração térmica das moléculas (calor), aproximando-se de um corpo negro.
+            </p>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>2. Qual é a diferença entre absorver e refletir radiação?</summary>
+            <p>
+              Absorver significa capturar a energia da onda eletromagnética e convertê-la em calor ou eletricidade. Refletir significa devolver a onda ao meio original sem reter sua energia térmica, mantendo a superfície fria.
+            </p>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>3. Uma cobertura transparente pode ajudar a aquecer a piscina?</summary>
+            <p>
+              Sim, pelo Efeito Estufa! A cobertura transparente deixa a luz visível entrar para aquecer a água, mas bloqueia a saída da radiação infravermelha emitida pela piscina e impede a perda de calor por evaporação.
+            </p>
+          </details>
+        </div>
+
+        <div class="table-wrapper reveal">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Componente</th>
+                <th>Luz Visível</th>
+                <th>Infravermelho</th>
+                <th>Função no Projeto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Coletor Preto Fosco</strong></td>
+                <td>Absorção máxima (~95%)</td>
+                <td>Alta absorção térmica</td>
+                <td>Aquecer a água circulante</td>
+              </tr>
+              <tr>
+                <td><strong>Capa Térmica Translúcida</strong></td>
+                <td>Alta transmissão (entrada)</td>
+                <td>Bloqueia saída de IV</td>
+                <td>Efeito estufa e proteção noturna</td>
+              </tr>
+              <tr>
+                <td><strong>Painel Fotovoltaico</strong></td>
+                <td>Gera corrente acima de f₀</td>
+                <td>Apenas aquecimento</td>
+                <td>Alimentar bomba e sensores</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROBÓTICA -->
+    <section id="robotica" class="section section-crimson">
+      <div class="container">
+        <div class="section-header light-header reveal">
+          <span class="kicker-light">Robótica &amp; Automação</span>
+          <h2>Controle Inteligente com Sensores ESP32</h2>
+          <p>Teste a leitura dos sensores DS18B20 e LDR e acompanhe a resposta automática do sistema.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="feature-card reveal">
+            <h3>Sensor DS18B20 (Temperatura Impermeável)</h3>
+            <p>Compara T_coletor e T_piscina. Só aciona a bomba quando há ganho térmico real (ΔT ≥ 3°C).</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <h3>Sensor LDR (Luminosidade Solar)</h3>
+            <p>Detecta o anoitecer e aciona o motor da capa térmica para evitar a perda de radiação infravermelha.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <h3>Sensor de Fluxo YF-S201</h3>
+            <p>Monitora a circulação hidráulica alimentada pelo painel solar, evitando que a bomba trabalhe sem água.</p>
+          </article>
+        </div>
+
+        <div class="esp32-bench sim-panel reveal">
+          <div class="sim-header-bar bar-orange">
+            <h3>Bancada Interativa ESP32</h3>
+          </div>
+          <div class="sim-body">
+            <div class="control-group">
+              <label for="esp-tcol">Temperatura Coletor (DS18B20): <strong id="val-esp-tcol">42 °C</strong></label>
+              <input type="range" id="esp-tcol" min="15" max="70" value="42">
             </div>
 
-					
-Piscina: 29.8 °C
+            <div class="control-group">
+              <label for="esp-tpool">Temperatura Piscina (DS18B20): <strong id="val-esp-tpool">28 °C</strong></label>
+              <input type="range" id="esp-tpool" min="15" max="40" value="28">
+            </div>
 
-Ganho Diurno
-+5.8 °C
+            <div class="control-group">
+              <label for="esp-ldr">Luminosidade Solar (LDR): <strong id="val-esp-ldr">75%</strong></label>
+              <input type="range" id="esp-ldr" min="0" max="100" value="75">
+            </div>
 
+            <div class="metrics-row" aria-live="polite">
+              <div class="metric-card">
+                <span>Relé Bomba Hidráulica (ΔT ≥ 3°C)</span>
+                <strong id="out-esp-pump">LIGADA (ΔT = +14 °C)</strong>
+              </div>
+              <div class="metric-card">
+                <span>Motor Capa Térmica (LDR &lt; 25%)</span>
+                <strong id="out-esp-cover">RECOLHIDA (Dia)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-Perda Noturna (IV)
--0.9 °C
+    <!-- LIBRAS -->
+    <section id="libras" class="section section-amber">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="kicker">Inclusão &amp; Acessibilidade</span>
+          <h2>Tradução em Libras (VLibras)</h2>
+          <p>Utilize o widget lateral de acessibilidade em Libras para traduzir qualquer conteúdo técnico desta página.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>HelioPool CEP</strong> • Projeto Integrador de Física Moderna, Programação e Robótica Sustentável.</p>
+    </div>
+  </footer>
 
-
-Simulador 2: Efeito Fotoelétrico & Bomba
-
-
-Frequência dos Fótons: Luz Azul (6.4 × 10¹⁴ Hz)
-Frequência de corte do Silício (f₀): 4.5 × 10¹⁴ Hz
-Intensidade Luminosa: 80%
-Feixe de Fótons Incidentes
-Placa Fotovoltaica (Silício)
-Elétrons Ejetados: Corrente Ativa
-Potência Gerada
-304 W
-
-
-Status da Bomba
-OPERANDO
-
-
-
-
-
-Revisão Ativa
-Flashcards Interativos de Física & Robótica
-Clique ou pressione Enter sobre qualquer cartão para virar e conferir a resposta científica.
-Corpo Negro
-Por que os coletores solares são pintados de preto fosco?
-Clique para virar ↻
-
-
-Porque superfícies escuras e foscas absorvem até 95% da luz visível e infravermelha, convertendo essa radiação em calor com máxima eficiência.
-
-
-Radiação IV
-Como a piscina perde calor durante a madrugada?
-Clique para virar ↻
-
-
-Pela emissão de radiação infravermelha térmica e pela evaporação da água. A capa térmica bloqueia ambos os processos.
-
-
-Efeito Fotoelétrico
-O que acontece se a luz tiver frequência menor que f₀?
-Clique para virar ↻
-
-
-Nenhum elétron é ejetado da placa fotovoltaica, independentemente da intensidade da luz, e a bomba permanece desligada.
-
-
-Automação CEP
-Qual a regra lógica do sensor DS18B20 para ligar a bomba?
-Clique para virar ↻
-
-
-A bomba só liga quando a temperatura no coletor solar está pelo menos 3 °C acima da temperatura da água da piscina.
-
-
-
-
-Investigação Científica
-Questões Orientadoras & Comparativo
-Respostas completas fundamentadas na física das radiações.
-1. Por que superfícies escuras tendem a absorver mais luz visível?
-
-
-A cor de um objeto depende das frequências da luz visível que ele reflete. Materiais escuros absorvem quase todos os comprimentos de onda do espectro visível, transformando a energia dos fótons em vibração térmica das moléculas (calor), aproximando-se de um corpo negro.
-
-
-2. Qual é a diferença entre absorver e refletir radiação?
-
-
-Absorver significa capturar a energia da onda eletromagnética e convertê-la em calor ou eletricidade. Refletir significa devolver a onda ao meio original sem reter sua energia térmica, mantendo a superfície fria.
-
-
-3. Uma cobertura transparente pode ajudar a aquecer a piscina?
-
-
-Sim, pelo Efeito Estufa! A cobertura transparente deixa a luz visível entrar para aquecer a água, mas bloqueia a saída da radiação infravermelha emitida pela piscina e impede a perda de calor por evaporação.
-
-
-
-
-Componente	Luz Visível	Infravermelho	Função no Projeto
-Coletor Preto Fosco
-	Absorção máxima (~95%)	Alta absorção térmica	Aquecer a água circulante
-Capa Térmica Translúcida
-	Alta transmissão (entrada)	Bloqueia saída de IV	Efeito estufa e proteção noturna
-Painel Fotovoltaico
-	Gera corrente acima de f₀	Apenas aquecimento	Alimentar bomba e sensores
-
-Robótica & Automação
-Controle Inteligente com Sensores ESP32
-Teste a leitura dos sensores DS18B20 e LDR e acompanhe a resposta automática do sistema.
-Sensor DS18B20 (Temperatura Impermeável)
-Compara T_coletor e T_piscina. Só aciona a bomba quando há ganho térmico real (ΔT ≥ 3°C).
-
-
-Sensor LDR (Luminosidade Solar)
-Detecta o anoitecer e aciona o motor da capa térmica para evitar a perda de radiação infravermelha.
-
-
-Sensor de Fluxo YF-S201
-Monitora a circulação hidráulica alimentada pelo painel solar, evitando que a bomba trabalhe sem água.
-
-Bancada Interativa ESP32
+  <script src="script.js"></script>
+</body>
+</html>
