@@ -1,250 +1,197 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const projetoImg = document.getElementById('projeto-img');
-  if (projetoImg) {
-    projetoImg.addEventListener('error', () => {
-      fetch('img.txt')
-        .then(res => res.text())
-        .then(text => {
-          const clean = text.trim();
-          if (clean.startsWith('data:image')) {
-            projetoImg.src = clean;
-          } else if (clean.length > 50) {
-            projetoImg.src = `data:image/png;base64,${clean}`;
-          }
-        })
-        .catch(() => {
-          projetoImg.alt = 'Arquivo img.txt não encontrado na pasta raiz.';
-        });
-    }, { once: true });
-  }
-
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Acessibilidade CEP
   const body = document.body;
-  const htmlEl = document.documentElement;
-  const btnContrast = document.getElementById('btn-contrast');
-  const btnDyslexia = document.getElementById('btn-dyslexia');
-  const btnFontInc = document.getElementById('btn-font-inc');
-  const btnFontDec = document.getElementById('btn-font-dec');
-  const btnResetA11y = document.getElementById('btn-reset-a11y');
+  const btnContrast = document.getElementById("btn-contrast");
+  const btnDyslexia = document.getElementById("btn-dyslexia");
+  const btnFontInc = document.getElementById("btn-font-inc");
+  const btnFontDec = document.getElementById("btn-font-dec");
+  const btnResetA11y = document.getElementById("btn-reset-a11y");
+  let fontSizePercent = 100;
 
-  let currentFontSize = 16;
-
-  btnContrast.addEventListener('click', () => {
-    const active = body.classList.toggle('high-contrast');
-    btnContrast.setAttribute('aria-pressed', active);
+  btnContrast?.addEventListener("click", () => {
+    const active = body.classList.toggle("high-contrast");
+    btnContrast.setAttribute("aria-pressed", String(active));
   });
 
-  btnDyslexia.addEventListener('click', () => {
-    const active = body.classList.toggle('dyslexia-mode');
-    btnDyslexia.setAttribute('aria-pressed', active);
+  btnDyslexia?.addEventListener("click", () => {
+    const active = body.classList.toggle("dyslexia-mode");
+    btnDyslexia.setAttribute("aria-pressed", String(active));
   });
 
-  btnFontInc.addEventListener('click', () => {
-    if (currentFontSize < 22) {
-      currentFontSize += 2;
-      htmlEl.style.fontSize = `${currentFontSize}px`;
+  btnFontInc?.addEventListener("click", () => {
+    if (fontSizePercent < 130) {
+      fontSizePercent += 10;
+      document.documentElement.style.fontSize = `${fontSizePercent}%`;
     }
   });
 
-  btnFontDec.addEventListener('click', () => {
-    if (currentFontSize > 14) {
-      currentFontSize -= 2;
-      htmlEl.style.fontSize = `${currentFontSize}px`;
+  btnFontDec?.addEventListener("click", () => {
+    if (fontSizePercent > 80) {
+      fontSizePercent -= 10;
+      document.documentElement.style.fontSize = `${fontSizePercent}%`;
     }
   });
 
-  btnResetA11y.addEventListener('click', () => {
-    body.classList.remove('high-contrast', 'dyslexia-mode');
-    btnContrast.setAttribute('aria-pressed', 'false');
-    btnDyslexia.setAttribute('aria-pressed', 'false');
-    currentFontSize = 16;
-    htmlEl.style.fontSize = '16px';
+  btnResetA11y?.addEventListener("click", () => {
+    body.classList.remove("high-contrast", "dyslexia-mode");
+    btnContrast?.setAttribute("aria-pressed", "false");
+    btnDyslexia?.setAttribute("aria-pressed", "false");
+    fontSizePercent = 100;
+    document.documentElement.style.fontSize = "100%";
   });
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mainNav = document.getElementById('main-nav');
+  // 2. Menu Mobile
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mainNav = document.getElementById("main-nav");
 
-  menuToggle.addEventListener('click', () => {
-    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', !expanded);
-    mainNav.classList.toggle('open');
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mainNav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+  // 3. Simulador 1: Corpo Negro & Capa Térmica
+  const simSurface = document.getElementById("sim-surface");
+  const simIrradiance = document.getElementById("sim-irradiance");
+  const valIrradiance = document.getElementById("val-irradiance");
+  const simCover = document.getElementById("sim-cover");
+  const stageCollector = document.getElementById("stage-collector");
+  const stageCover = document.getElementById("stage-cover");
+  const outCollectorTemp = document.getElementById("out-collector-temp");
+  const outPoolTemp = document.getElementById("out-pool-temp");
+  const outGain = document.getElementById("out-gain");
+  const outLoss = document.getElementById("out-loss");
 
-  document.querySelectorAll('.flashcard').forEach(card => {
-    card.addEventListener('click', () => {
-      const isFlipped = card.classList.toggle('flipped');
-      card.setAttribute('aria-pressed', isFlipped);
-    });
-  });
+  const surfaceColors = {
+    "0.95": { bg: "#1c0a04", text: "#ffb703" },
+    "0.65": { bg: "#1e3a8a", text: "#fef08a" },
+    "0.20": { bg: "#e2e8f0", text: "#1f0d05" }
+  };
 
-  const revealElements = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  revealElements.forEach(el => observer.observe(el));
-
-  const simSurface = document.getElementById('sim-surface');
-  const simIrradiance = document.getElementById('sim-irradiance');
-  const simCover = document.getElementById('sim-cover');
-  const valIrradiance = document.getElementById('val-irradiance');
-  const stageCollector = document.getElementById('stage-collector');
-  const stageCover = document.getElementById('stage-cover');
-  const outCollectorTemp = document.getElementById('out-collector-temp');
-  const outPoolTemp = document.getElementById('out-pool-temp');
-  const outGain = document.getElementById('out-gain');
-  const outLoss = document.getElementById('out-loss');
-
-  function updateThermalSimulator() {
-    const absorptivity = parseFloat(simSurface.value);
-    const irradiance = parseFloat(simIrradiance.value);
+  function updateSim1() {
+    const abs = parseFloat(simSurface.value);
+    const irr = parseFloat(simIrradiance.value);
     const hasCover = simCover.checked;
 
-    valIrradiance.textContent = `${irradiance} W/m²`;
+    valIrradiance.textContent = `${irr} W/m²`;
 
-    if (absorptivity >= 0.9) {
-      stageCollector.style.backgroundColor = '#1c0a04';
-      stageCollector.style.color = '#ffb703';
-    } else if (absorptivity >= 0.6) {
-      stageCollector.style.backgroundColor = '#1e3a8a';
-      stageCollector.style.color = '#ffffff';
-    } else {
-      stageCollector.style.backgroundColor = '#f4f4f5';
-      stageCollector.style.color = '#1c0a04';
-    }
+    const palette = surfaceColors[simSurface.value] || surfaceColors["0.95"];
+    stageCollector.style.backgroundColor = palette.bg;
+    stageCollector.style.color = palette.text;
 
-    const baseTemp = 24.0;
-    const collectorTemp = 25 + (irradiance / 1000) * absorptivity * 40;
-    const dailyGain = (irradiance / 1000) * absorptivity * 7.2;
-    const nightLoss = hasCover ? 0.9 : 3.5;
-    const finalPoolTemp = Math.max(20, baseTemp + dailyGain - nightLoss);
+    const collectorTemp = 24 + irr * abs * 0.0412;
+    const gain = irr * abs * 0.0072;
+    const loss = hasCover ? -0.9 : -3.6;
+    const poolTemp = 24.9 + gain + loss;
 
-    stageCover.style.display = hasCover ? 'inline-block' : 'none';
     outCollectorTemp.textContent = `${collectorTemp.toFixed(1)} °C`;
-    outPoolTemp.textContent = `${finalPoolTemp.toFixed(1)} °C`;
-    outGain.textContent = `+${dailyGain.toFixed(1)} °C`;
-    outLoss.textContent = `-${nightLoss.toFixed(1)} °C`;
+    outPoolTemp.textContent = `${poolTemp.toFixed(1)} °C`;
+    outGain.textContent = `+${gain.toFixed(1)} °C`;
+    outLoss.textContent = `${loss.toFixed(1)} °C`;
+
+    if (hasCover) {
+      stageCover.textContent = "Capa Térmica Ativa (Retendo IV)";
+      stageCover.style.backgroundColor = "#ffb703";
+      stageCover.style.color = "#1c0a04";
+    } else {
+      stageCover.textContent = "Sem Capa Térmica (Perda Alta de IV)";
+      stageCover.style.backgroundColor = "#dc2626";
+      stageCover.style.color = "#ffffff";
+    }
   }
 
-  simSurface.addEventListener('change', updateThermalSimulator);
-  simIrradiance.addEventListener('input', updateThermalSimulator);
-  simCover.addEventListener('change', updateThermalSimulator);
-  updateThermalSimulator();
+  simSurface?.addEventListener("change", updateSim1);
+  simIrradiance?.addEventListener("input", updateSim1);
+  simCover?.addEventListener("change", updateSim1);
 
-  const simFreq = document.getElementById('sim-freq');
-  const simIntensity = document.getElementById('sim-intensity');
-  const valFreq = document.getElementById('val-freq');
-  const valIntensity = document.getElementById('val-intensity');
-  const photonBeam = document.getElementById('photon-beam');
-  const electronFlow = document.getElementById('electron-flow');
-  const outPower = document.getElementById('out-power');
-  const outPumpStatus = document.getElementById('out-pump-status');
+  // 4. Simulador 2: Efeito Fotoelétrico & Bomba
+  const simFreq = document.getElementById("sim-freq");
+  const simIntensity = document.getElementById("sim-intensity");
+  const valIntensity = document.getElementById("val-intensity");
+  const stagePhoton = document.getElementById("stage-photon");
+  const stageElectron = document.getElementById("stage-electron");
+  const outElectrons = document.getElementById("out-electrons");
+  const outPower = document.getElementById("out-power");
+  const outPump = document.getElementById("out-pump");
+  const cutoffFreq = 4.5;
 
-  const THRESHOLD_FREQ = 4.5;
+  const photonColors = {
+    "4.3": { bg: "#ef4444", text: "#ffffff" },
+    "5.5": { bg: "#22c55e", text: "#052e16" },
+    "6.4": { bg: "#3b82f6", text: "#ffffff" },
+    "7.5": { bg: "#8b5cf6", text: "#ffffff" }
+  };
 
-  function updatePhotoelectricSimulator() {
+  function updateSim2() {
     const freq = parseFloat(simFreq.value);
     const intensity = parseInt(simIntensity.value, 10);
 
     valIntensity.textContent = `${intensity}%`;
 
-    let spectrumName = '';
-    let beamColor = '#ffb703';
-    let textColor = '#1c0a04';
+    const color = photonColors[simFreq.value] || photonColors["6.4"];
+    stagePhoton.style.backgroundColor = color.bg;
+    stagePhoton.style.color = color.text;
 
-    if (freq < 4.5) {
-      spectrumName = 'Infravermelho / Vermelho Profundo';
-      beamColor = '#991b1b';
-      textColor = '#ffffff';
-    } else if (freq < 5.8) {
-      spectrumName = 'Luz Amarela / Verde';
-      beamColor = '#ffb703';
-    } else if (freq < 7.0) {
-      spectrumName = 'Luz Azul';
-      beamColor = '#0284c7';
-      textColor = '#ffffff';
+    if (freq >= cutoffFreq && intensity > 0) {
+      const power = Math.round(380 * (intensity / 100));
+      outElectrons.textContent = "Corrente Ativa";
+      stageElectron.style.backgroundColor = "#16a34a";
+      outPower.textContent = `${power} W`;
+      outPump.textContent = "OPERANDO";
     } else {
-      spectrumName = 'Ultravioleta (Alta Energia)';
-      beamColor = '#6d28d9';
-      textColor = '#ffffff';
-    }
-
-    valFreq.textContent = `${spectrumName} (${freq.toFixed(1)} × 10¹⁴ Hz)`;
-    photonBeam.style.backgroundColor = beamColor;
-    photonBeam.style.color = textColor;
-
-    if (freq < THRESHOLD_FREQ) {
-      electronFlow.textContent = 'Sem ejeção de elétrons (f < f₀)';
-      electronFlow.style.backgroundColor = '#57534e';
-      outPower.textContent = '0 W';
-      outPumpStatus.textContent = 'DESLIGADA';
-      outPumpStatus.style.color = '#dc2626';
-    } else {
-      const generatedWatts = Math.round((intensity / 100) * 380);
-      electronFlow.textContent = `Elétrons Ejetados: Corrente Ativa (${intensity}%)`;
-      electronFlow.style.backgroundColor = '#fb8500';
-      outPower.textContent = `${generatedWatts} W`;
-
-      if (generatedWatts >= 120) {
-        outPumpStatus.textContent = 'OPERANDO';
-        outPumpStatus.style.color = '#15803d';
-      } else {
-        outPumpStatus.textContent = 'BAIXA POTÊNCIA';
-        outPumpStatus.style.color = '#d97706';
-      }
+      outElectrons.textContent = freq < cutoffFreq ? "Bloqueado (f < f₀)" : "Sem Luz (0%)";
+      stageElectron.style.backgroundColor = "#dc2626";
+      outPower.textContent = "0 W";
+      outPump.textContent = "DESLIGADA";
     }
   }
 
-  simFreq.addEventListener('input', updatePhotoelectricSimulator);
-  simIntensity.addEventListener('input', updatePhotoelectricSimulator);
-  updatePhotoelectricSimulator();
+  simFreq?.addEventListener("change", updateSim2);
+  simIntensity?.addEventListener("input", updateSim2);
 
-  const robTcol = document.getElementById('rob-tcol');
-  const robTpool = document.getElementById('rob-tpool');
-  const robLux = document.getElementById('rob-lux');
-  const valRobTcol = document.getElementById('val-rob-tcol');
-  const valRobTpool = document.getElementById('val-rob-tpool');
-  const valRobLux = document.getElementById('val-rob-lux');
-  const serialOutput = document.getElementById('serial-output');
+  // 5. Flashcards Interativos
+  document.querySelectorAll(".flashcard").forEach((card) => {
+    card.addEventListener("click", () => {
+      const flipped = card.classList.toggle("flipped");
+      card.setAttribute("aria-pressed", String(flipped));
+    });
+  });
 
-  function updateRoboticsMonitor() {
-    const tCol = parseInt(robTcol.value, 10);
-    const tPool = parseInt(robTpool.value, 10);
-    const lux = parseInt(robLux.value, 10);
+  // 6. Bancada Interativa ESP32
+  const espTcol = document.getElementById("esp-tcol");
+  const valEspTcol = document.getElementById("val-esp-tcol");
+  const espTpool = document.getElementById("esp-tpool");
+  const valEspTpool = document.getElementById("val-esp-tpool");
+  const espLdr = document.getElementById("esp-ldr");
+  const valEspLdr = document.getElementById("val-esp-ldr");
+  const espSerialOutput = document.getElementById("esp-serial-output");
+
+  function updateEsp32() {
+    const tCol = parseFloat(espTcol.value);
+    const tPool = parseFloat(espTpool.value);
+    const ldr = parseInt(espLdr.value, 10);
     const deltaT = tCol - tPool;
 
-    valRobTcol.textContent = `${tCol} °C`;
-    valRobTpool.textContent = `${tPool} °C`;
-    valRobLux.textContent = lux > 30 ? `${lux}% (Dia)` : `${lux}% (Noite / Nublado)`;
+    valEspTcol.textContent = `${tCol} °C`;
+    valEspTpool.textContent = `${tPool} °C`;
+    valEspLdr.textContent = `${ldr}%`;
 
-    const pumpState = deltaT >= 3 && lux > 20
-      ? 'LIGADA (Transferindo calor solar)'
-      : 'DESLIGADA (Evitando resfriamento)';
+    const pumpState = deltaT >= 3 ? "LIGADO (ΔT >= 3°C)" : "DESLIGADO (ΔT < 3°C)";
+    const coverState = ldr < 25 ? "ESTENDIDA (Retendo IV Noturno)" : "RECOLHIDA (Período Diurno)";
 
-    const coverState = lux <= 30
-      ? 'ESTENDIDA (Bloqueando radiação IV noturna)'
-      : 'RECOLHIDA (Permitindo incidência solar)';
-
-    serialOutput.textContent =
-`> Lendo sensores DS18B20 e LDR...
-> T_coletor: ${tCol}°C | T_piscina: ${tPool}°C | ΔT: ${deltaT >= 0 ? '+' : ''}${deltaT}°C
-> [ATUADOR 1] Bomba Solar: ${pumpState}
-> [ATUADOR 2] Motor Capa Térmica: ${coverState}`;
+    espSerialOutput.textContent =
+      `[ESP32] Lendo sensores DS18B20 e LDR...\n` +
+      `T_coletor: ${tCol.toFixed(1)} °C | T_piscina: ${tPool.toFixed(1)} °C | ΔT = ${deltaT >= 0 ? "+" : ""}${deltaT.toFixed(1)} °C\n` +
+      `Luminosidade LDR: ${ldr}%\n` +
+      `>> RELÉ BOMBA: ${pumpState}\n` +
+      `>> MOTOR CAPA: ${coverState}`;
   }
 
-  robTcol.addEventListener('input', updateRoboticsMonitor);
-  robTpool.addEventListener('input', updateRoboticsMonitor);
-  robLux.addEventListener('input', updateRoboticsMonitor);
-  updateRoboticsMonitor();
+  espTcol?.addEventListener("input", updateEsp32);
+  espTpool?.addEventListener("input", updateEsp32);
+  espLdr?.addEventListener("input", updateEsp32);
+
+  // Inicializar valores
+  if (simSurface) updateSim1();
+  if (simFreq) updateSim2();
+  if (espTcol) updateEsp32();
 });
